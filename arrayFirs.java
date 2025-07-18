@@ -8,20 +8,26 @@ public class arrayFirs{
         }
         return -1;
 
-    }
+    }  
+     //Q.2 largest Number FIND 
+    public static int largestNumber(int array2 []){
+        int largest =0;
+        for(int i =0;i<array2.length; i++){
+            if(array2[i] > largest){
+                largest = array2[i];
+            }
+
+        }
+        System.out.println("largest number is:"+largest);
+        return 1;
+
+        }
     public static void main(String args[]){
         System.out.println("hello world {1}");
         System.out.println("|| Java || DSA Ch.1 || Arrays || ");
-        //Q.1 Linear Search 
-        int array [] = {2,4,6,8,10,12,14};
-        int key =10;
-        int index = linearSearch(array, key);
-        if(index == -1){
-            System.out.println("key is not found");
+            int array2 [] = {1,2,6,3,5};
+           System.out.println(largestNumber(array2)); 
 
-            }else{
-                System.out.println("key is at index "+ index);
-            }
         }
         
     }
