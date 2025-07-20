@@ -32,50 +32,51 @@ public class arrayTwo{
     // }
     
     //Q.2 MAX SUBARRAY SUM
-    public static void maxSubArraySum(int array[]){
-        int maxSum =Integer.MIN_VALUE;
-                    for(int i =0; i< array.length;i++){
-            for(int j=i; j<array.length;j++){
-                int currSum =0;
-                for(int k =i;k<=j; k++){
-                    System.out.print(array[k]+" ");
-                    currSum+= array[k];
-                } 
-                System.out.println();
-                System.out.println("curent sum ="+currSum);
-                if(currSum > maxSum){
-                    maxSum = currSum;
+    // public static void maxSubArraySum(int array[]){
+    //     int maxSum =Integer.MIN_VALUE;
+    //                 for(int i =0; i< array.length;i++){
+    //         for(int j=i; j<array.length;j++){
+    //             int currSum =0;
+    //             for(int k =i;k<=j; k++){
+    //                 System.out.print(array[k]+" ");
+    //                 currSum+= array[k];
+    //             } 
+    //             System.out.println();
+    //             System.out.println("curent sum ="+currSum);
+    //             if(currSum > maxSum){
+    //                 maxSum = currSum;
 
-                }                
-            }            
-        }
-        System.out.println("your maxSubArray sum is ="+maxSum);
-    }
-    public static void minSubArraySum(int array[]){
-                int minSum =Integer.MAX_VALUE;
-                    for(int i =0; i< array.length;i++){
-            for(int j=i; j<array.length;j++){
-                int currSum =0;
-                for(int k =i;k<=j; k++){
-                    System.out.print(array[k]+" ");
-                    currSum+= array[k];
-                } 
-                System.out.println();
-                System.out.println("curent sum ="+currSum);
-                if(currSum < minSum){
-                    minSum = currSum;
+    //             }                
+    //         }            
+    //     }
+    //     System.out.println("your maxSubArray sum is ="+maxSum);
+    // }
+    // //Q.3 MINIMUM SUB ARRAYA KA SUM 
+    // public static void minSubArraySum(int array[]){
+    //             int minSum =Integer.MAX_VALUE;
+    //                 for(int i =0; i< array.length;i++){
+    //         for(int j=i; j<array.length;j++){
+    //             int currSum =0;
+    //             for(int k =i;k<=j; k++){
+    //                 System.out.print(array[k]+" ");
+    //                 currSum+= array[k];
+    //             } 
+    //             System.out.println();
+    //             System.out.println("curent sum ="+currSum);
+    //             if(currSum < minSum){
+    //                 minSum = currSum;
 
-                }                
-            }            
-        }
-                System.out.println("your minSubArray sum is ="+minSum);
+    //             }                
+    //         }            
+    //     }
+    //             System.out.println("your minSubArray sum is ="+minSum);
         
 
-    }
+    // }
     
     public static void main(String args[]){
         int array[] = {2,4,6,8,10};
-        minSubArraySum(array);
+      System.out.println("Hello World");
      
         
     }
