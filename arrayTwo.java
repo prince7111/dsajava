@@ -73,10 +73,58 @@ public class arrayTwo{
         
 
     // }
+          // max sub array sum 
+          public static void maxSubArray(int array[]){
+            int ms = Integer.MIN_VALUE;
+            int cs = 0;
+            for(int i =0; i< array.length;i++){             
+              for(int j =i; j<array.length; j++){
+                        cs =0;
+                for(int k =i; k<=j; k++){
+               
+                  cs += array[k];
+                }
+             System.out.println(cs);
+                if(ms<cs){
+                  ms = cs;
+                }
+              
+              }
+            }
+            System.out.println("our maximum sum is ="+ms);
+          }
+          public static void prefixMs(int array[]){
+            int cs =0;
+            int ms = Integer.MIN_VALUE;
+            int prefix [] = new int [array.length];
+            //creat prefix array
+            prefix[0] = array[0];
+            for(int i =1;i<array.length;i++){
+              prefix[i] = prefix[i-1]+array[i];
+            } 
+            for(int i =0; i<array.length;i++){ 
+             
+              for(int j =0; j<array.length;j++){
+                cs =0;
+               
+                cs = i==0?prefix[j]:prefix[j]-prefix[i-1];
+                if(ms<cs){
+                  ms = cs;
+                }
+                
+              }
+
+            }
+            System.out.println("our max sub array sum is ="+ms);
+          }
     
     public static void main(String args[]){
-        int array[] = {2,4,6,8,10};
-      System.out.println("Hello World");
+      int array[] ={1,-2,6,-1,3};
+     // maxSubArray(array);
+     prefixMs(array);
+     
+
+
      
         
     }
