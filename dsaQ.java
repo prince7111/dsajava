@@ -3,6 +3,10 @@ package dsajava;
 
 
 public class dsaQ {
+   // java dsa || ARRAY \\ easy level Question 3 (july 22)
+   // Merge two Sorted array
+   //
+   
    public static void mergeTwo(int A[],int B[],int m,int n){
     int idx = (m+n)-1;
         int i =m-1;
