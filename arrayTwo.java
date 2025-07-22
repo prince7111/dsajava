@@ -117,11 +117,25 @@ public class arrayTwo{
             }
             System.out.println("our max sub array sum is ="+ms);
           }
+          //max sub array sum kadanes algorithm 
+          public static void kadanesalgorithm(int array[]){
+            int cs =0;
+            int ms =Integer.MIN_VALUE;
+            for(int i =0;i<array.length;i++){
+              cs = cs+array[i];
+              if(cs <0){
+                cs =0;
+              }  System.out.println("currSum"+cs);
+              ms = Math.max(cs, ms);
+               System.out.println("mas sub arrya sum "+ms);
+            }
+            System.out.println("our max sub array sum "+ms);
+          }
     
     public static void main(String args[]){
       int array[] ={1,-2,6,-1,3};
-     // maxSubArray(array);
-     prefixMs(array);
+      kadanesalgorithm(array);
+    
      
 
 
