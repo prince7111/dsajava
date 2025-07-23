@@ -157,11 +157,25 @@ public class arrayTwo{
       return trapwater;
       
     }
+    // Q.5 || Array part II || Buy and sell stokes
+    public static int buysellStocks(int price[]){
+      int buyprice = Integer.MAX_VALUE;
+      int maxprofit = 0;
+      for(int i =0 ; i<price.length; i++){
+        if (buyprice < price[i]){
+          int profit = price[i] - buyprice;
+          maxprofit = Math.max(maxprofit,profit);
+        }else{
+          buyprice = price[i];
+        }
+      }
+      return maxprofit;
+
+    }
     public static void main(String args[]){
+      int price [] = {7,1,5,4,6,3};
         //traping rain water
-         int height[] = {4,2,0,6,3,2,5}; // HEIGHT OF BAR
-         System.out.println((trapingrainWater(height)));
-         System.out.println("compleate 3d");
+        System.out.println(buysellStocks(price));
         
         
         
