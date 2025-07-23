@@ -161,7 +161,7 @@ public class arrayTwo{
         //traping rain water
          int height[] = {4,2,0,6,3,2,5}; // HEIGHT OF BAR
          System.out.println((trapingrainWater(height)));
-         System.out.println("compleate 3d3 july");
+         System.out.println("compleate 3d");
         
         
         
