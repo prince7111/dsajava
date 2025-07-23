@@ -131,15 +131,34 @@ public class arrayTwo{
             }
             System.out.println("our max sub array sum "+ms);
           }
-    
+    public static int trapingrainWater(int height[]){
+      int trapwater =0;
+      //left maximum bar
+      int leftMax[] = new int [height.length];
+      leftMax[0] = height[0];
+      for(int i=1; i<height.length; i++){
+        leftMax[i] = Math.max(leftMax[i-1], height[i]);
+      }
+      //right max bar 
+      int rightMax[] = new int [height.length];
+      rightMax[height.length-1] = height[height.length-1];
+      for(int i =height.length-2; i>=0; i--){
+        rightMax[i] = Math.max(rightMax[i+1],height[i]);
+      }
+      //water leeval;
+      for(int i =0; i<height.length; i++){
+        int waterlevel = Math.min(leftMax[i], rightMax[i]);
+        trapwater += waterlevel - height[i];
+      }
+      //
+      System.out.println("Answers :"+trapwater);
+      return trapwater;
+      
+    }
     public static void main(String args[]){
-      int array[] ={1,-2,6,-1,3};
-      kadanesalgorithm(array);
-    
-     
-
-
-     
-        
+        //traping rain water
+        int height[] = {4,2,0,6,3,2,5};
+        System.out.println((trapingrainWater(height)));
+        trapingrainWater(height);             
     }
 }
