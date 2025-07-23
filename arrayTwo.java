@@ -157,26 +157,12 @@ public class arrayTwo{
       return trapwater;
       
     }
-    public static int buySellStocks(int price[]){
-      int buyprice =Integer.MAX_VALUE;
-      int maxProfit =0;
-      for(int i =0; i<price.length; i++){
-        if(buyprice < price[i]){
-          int Profit =price[i]- buyprice;
-          maxProfit = Math.max(maxProfit,Profit);
-        }else{
-          buyprice = price[i];
-        }
-      }
-      return maxProfit;
-
-    }
     public static void main(String args[]){
         //traping rain water
-        // int height[] = {4,2,0,6,3,2,5}; // HEIGHT OF BARS
-        // System.out.println((trapingrainWater(height)));
-        int price[] = {7,1,5,3,6,2};
-        System.out.println(buySellStocks(price));
+         int height[] = {4,2,0,6,3,2,5}; // HEIGHT OF BAR
+         System.out.println((trapingrainWater(height)));
+         System.out.println("compleate 3d3 july");
+        
         
         
        
