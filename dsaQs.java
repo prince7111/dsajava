@@ -34,10 +34,26 @@ public class dsaQs {
         return -1;
 
     }
+    public static int calCprofit(int price[]){
+        int bysPrice =Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for(int i=0; i<price.length;i++){
+            if(bysPrice < price[i]){
+                int profit = price[i]-bysPrice;
+                maxProfit = Math.max(maxProfit,profit);
+            }else{
+                bysPrice = price[i];
+            }
+            
+        }
+        return maxProfit;
+
+    }
     public static void main(String args[]){
-       int nums[] = {4,5,6,7,0,1,2};
-        int target = 4;
-        System.out.println(findIdx(nums, target));
+        int prince[] = {7,1,5,3,6,4};
+        System.out.println( calCprofit(prince));
+        
+       //
         
       
     
