@@ -1,15 +1,28 @@
 package dsajava;
 public class dsaQs {
-    public static void main(String args[]){
-        System.out.println("hello world");
-        System.out.println("DSA JAVA || ARRAY 1 || EASY LEVEL || Q.4 || Single number");
-        int array[] = {4,2,1,2,1};
-        int single =0;
-        for(int i =0; i<array.length; i++){
-            single = single^array[i];
+    public static boolean  isTwice(int nums[]){
+       boolean res =false;
+        
+        for(int i =0;i<nums.length;i++){
+            int oprt = nums[i];
+            for(int j =0;j<nums.length;j++){
+                if(((oprt ^ nums[j])==0)&& (i!=j)){
+                    return true;
+                    
 
-        }
-        System.out.println("single :"+single);
+                }
+            }
+        
+        } 
+        return res;  
+        
     }
+    public static void main(String args[]){
+       int nums[] = {1,1,3,3,4,3,2,4,2};
+       System.out.println(isTwice(nums));
+
+
+      
     
+    }
 }
