@@ -133,52 +133,65 @@ public class arrayTwo{
     //       }
           //Arrays part 2 || Q.4 || Traping rain water
 
-    public static int trapingrainWater(int height[]){
-      int trapwater =0;
-      //left maximum bar
-      int leftMax[] = new int [height.length];
-      leftMax[0] = height[0];
-      for(int i=1; i<height.length; i++){
-        leftMax[i] = Math.max(leftMax[i-1], height[i]);
-      }
-      //right max bar 
-      int rightMax[] = new int [height.length];
-      rightMax[height.length-1] = height[height.length-1];
-      for(int i =height.length-2; i>=0; i--){
-        rightMax[i] = Math.max(rightMax[i+1],height[i]);
-      }
-      //water leeval;
-      for(int i =0; i<height.length; i++){
-        int waterlevel = Math.min(leftMax[i], rightMax[i]);
-        trapwater += waterlevel - height[i];
-      }
-      //
-      System.out.println("Answers :"+trapwater);
-      return trapwater;
+    // public static int trapingrainWater(int height[]){
+    //   int trapwater =0;
+    //   //left maximum bar
+    //   int leftMax[] = new int [height.length];
+    //   leftMax[0] = height[0];
+    //   for(int i=1; i<height.length; i++){
+    //     leftMax[i] = Math.max(leftMax[i-1], height[i]);
+    //   }
+    //   //right max bar 
+    //   int rightMax[] = new int [height.length];
+    //   rightMax[height.length-1] = height[height.length-1];
+    //   for(int i =height.length-2; i>=0; i--){
+    //     rightMax[i] = Math.max(rightMax[i+1],height[i]);
+    //   }
+    //   //water leeval;
+    //   for(int i =0; i<height.length; i++){
+    //     int waterlevel = Math.min(leftMax[i], rightMax[i]);
+    //     trapwater += waterlevel - height[i];
+    //   }
+    //   //
+    //   System.out.println("Answers :"+trapwater);
+    //   return trapwater;
       
-    }
-    // Q.5 || Array part II || Buy and sell stokes
-    public static int buysellStocks(int price[]){
-      int buyprice = Integer.MAX_VALUE;
-      int maxprofit = 0;
-      for(int i =0 ; i<price.length; i++){
-        if (buyprice < price[i]){
-          int profit = price[i] - buyprice;
-          maxprofit = Math.max(maxprofit,profit);
-        }else{
-          buyprice = price[i];
+    // }
+    // // Q.5 || Array part II || Buy and sell stokes
+    // public static int buysellStocks(int price[]){
+    //   int buyprice = Integer.MAX_VALUE;
+    //   int maxprofit = 0;
+    //   for(int i =0 ; i<price.length; i++){
+    //     if (buyprice < price[i]){
+    //       int profit = price[i] - buyprice;
+    //       maxprofit = Math.max(maxprofit,profit);
+    //     }else{
+    //       buyprice = price[i];
+    //     }
+    //   }
+    //   return maxprofit;
+
+    // }
+    public static void main(String args[]){
+      //Questions 5 : three sum =0
+      int nums[] = {-1,0,1,2,-1,-4};
+       int n = nums.length;
+      for(int i =0; i<n; i++){
+        for(int j =i+1; j<n; j++){
+          for(int k =j+1; k<n;k++){
+            if((nums[i]+nums[j]+nums[k]==0) ){
+              System.out.print("["+nums[i]+","+nums[j]+","+nums[k]+"]");
+              
+           }
+          
+            }
+
+          }
         }
       }
-      return maxprofit;
 
-    }
-    public static void main(String args[]){
-      int price [] = {7,1,5,4,6,3};
-        //traping rain water
-        System.out.println(buysellStocks(price));
         
         
         
        
     }
-}
