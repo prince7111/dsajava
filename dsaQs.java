@@ -76,15 +76,31 @@ public class dsaQs {
 
 
     }
-    public static void main(String args[]){
-        int height[] ={0,1,0,2,1,0,1,3,2,1,2,1};//output 6
-        int n = height.length;
-        System.out.println(calCTrapwater(height, n));
-     
+    //Q.5 compute the power of X^n
+    public static int calculatepow(int x,int n){
+        int binary =n;
+        int ans =1;
+        if(binary< 0){
+            x = 1/x;
+            binary =-binary;
+        }
+        while(binary>0){
+            if(binary % 2 ==1){
+                ans*=x;
+            }
+            x*=x;
+            binary = binary/2;
+        }
+        System.out.println(ans);
+        return ans;
 
-        
-        
-      
+
+    }
+    public static void main(String args[]){
+        int x =2;
+        int n=10;
+        System.out.println(calculatepow(x,n));
+       
     
     }
 }
