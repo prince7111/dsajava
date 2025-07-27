@@ -94,12 +94,28 @@ public class dsaQs {
     //     }
     //     System.out.println(ans);
     //     return ans;
+    public static int maxSubArrayKad(int arr[]){
+        int cs =0;
+        int maxSubArraySum =Integer.MIN_VALUE;
+        for(int i =0; i<arr.length;i++){
+            cs += arr[i];
+            if(cs < 0){
+                cs =0;
+
+            }
+            maxSubArraySum = Math.max(cs, maxSubArraySum);
+
+        }
+        return maxSubArraySum;
+
+    }
 
 
     public static void main(String args[]){
         System.out.println("hello World");//
-        System.out.println("Java +Dsa || ArrayS Questions || day 2 || Q.7 || maximum subArray sum kadan'es algorithm");//26 july 20250
-        
+        System.out.println("Java +Dsa, ArrayS Questions,day 2 || Q.8 || Search in 2-D matrix");//27 july 20250
+      
+
 
 
       
