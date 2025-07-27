@@ -94,33 +94,53 @@ public class dsaQs {
     //     }
     //     System.out.println(ans);
     //     return ans;
-    public static int maxSubArrayKad(int arr[]){
-        int cs =0;
-        int maxSubArraySum =Integer.MIN_VALUE;
-        for(int i =0; i<arr.length;i++){
-            cs += arr[i];
-            if(cs < 0){
-                cs =0;
+    // kadanes algorithm
+    // public static int maxSubArrayKad(int arr[]){
+    //     int cs =0;
+    //     int maxSubArraySum =Integer.MIN_VALUE;
+    //     for(int i =0; i<arr.length;i++){
+    //         cs += arr[i];
+    //         if(cs < 0){
+    //             cs =0;
 
+    //         }
+    //         maxSubArraySum = Math.max(cs, maxSubArraySum);
+
+    //     }
+    //     return maxSubArraySum;
+
+    // }
+    // public static boolean  searchTarget(int matrix [][],int t){
+    //     for(int i =0;i<matrix.length;i++){
+    //         for(int j =0; j<matrix[0].length;j++){
+    //             if(t == matrix[i][j]){
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
+    public static boolean  staircaesearch(int matrix[][],int t){
+        int row =0; int col = matrix[0].length-1;
+        while (row< matrix.length && col>=0){
+            if(matrix[row][col]==t){
+                return true;
+               
+                
+            }else if(t<matrix[row][col]){
+                col--;
+            }else{
+                row--;
             }
-            maxSubArraySum = Math.max(cs, maxSubArraySum);
-
         }
-        return maxSubArraySum;
-
+        return false;
     }
-
-
     public static void main(String args[]){
         System.out.println("hello World");//
         System.out.println("Java +Dsa, ArrayS Questions,day 2 || Q.8 || Search in 2-D matrix");//27 july 20250
+        int matrix[][] = {{1,3,5,7},{10,11,16,20},{23,30 ,34,60}};int t =3;
+        System.out.println(staircaesearch(matrix, t));
       
 
-
-
-      
-    
-       
-    
     }
 }
