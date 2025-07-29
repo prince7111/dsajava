@@ -119,27 +119,41 @@ public class dsaQs {
     //         }
     //     }
     //     return false;
-    // }
-    public static boolean  staircaesearch(int matrix[][],int t){
-        int row =0; int col = matrix[0].length-1;
-        while (row< matrix.length && col>=0){
-            if(matrix[row][col]==t){
-                return true;
+    // // }
+    // public static boolean  staircaesearch(int matrix[][],int t){
+    //     int row =0; int col = matrix[0].length-1;
+    //     while (row< matrix.length && col>=0){
+    //         if(matrix[row][col]==t){
+    //             return true;
                
                 
-            }else if(t<matrix[row][col]){
-                col--;
-            }else{
-                row--;
+    //         }else if(t<matrix[row][col]){
+    //             col--;
+    //         }else{
+    //             row--;
+    //         }
+    //     }
+    //     return false;
+    // }
+    public static int maxWAter(int height[]){
+        int maxContain =0;
+        for(int i =0; i<height.length;i++){
+            for(int j =i+1;j<height.length;j++){
+                int hight = Math.min(height[i], height[j]);
+                int width = j-i;
+                int area = hight * width;
+                maxContain = Math.max(maxContain,area);
+                
             }
         }
-        return false;
+        return maxContain;
     }
     public static void main(String args[]){
         System.out.println("hello World");//
-        System.out.println("Java +Dsa, ArrayS Questions,day 2 || Q.8 || Search in 2-D matrix");//27 july 20250
-        int matrix[][] = {{1,3,5,7},{10,11,16,20},{23,30 ,34,60}};int t =3;
-        System.out.println(staircaesearch(matrix, t));
+        System.out.println("ArrayS Questions,day 2 || Q.9||container with most water");//27 july 20250
+       int height[] = {1,8,6,2,5,4,8,3,7};
+       System.out.println(maxWAter(height));
+       
       
 
     }
