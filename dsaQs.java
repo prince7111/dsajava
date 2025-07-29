@@ -116,43 +116,68 @@ public class dsaQs {
     //             if(t == matrix[i][j]){
     //                 return true;
     //             }
-    //         }
-    //     }
-    //     return false;
-    // // }
-    // public static boolean  staircaesearch(int matrix[][],int t){
-    //     int row =0; int col = matrix[0].length-1;
-    //     while (row< matrix.length && col>=0){
-    //         if(matrix[row][col]==t){
-    //             return true;
+    // //         }
+    // //     }
+    // //     return false;
+    // // // }
+    // // public static boolean  staircaesearch(int matrix[][],int t){
+    // //     int row =0; int col = matrix[0].length-1;
+    // //     while (row< matrix.length && col>=0){
+    // //         if(matrix[row][col]==t){
+    // //             return true;
                
                 
-    //         }else if(t<matrix[row][col]){
-    //             col--;
-    //         }else{
-    //             row--;
+    // //         }else if(t<matrix[row][col]){
+    // //             col--;
+    // //         }else{
+    // //             row--;
+    // //         }
+    // //     }
+    // //     return false;
+    // // }
+    // public static int maxWAter(int height[]){
+    //     int maxContain =0;
+    //     for(int i =0; i<height.length;i++){
+    //         for(int j =i+1;j<height.length;j++){
+    //             int hight = Math.min(height[i], height[j]);
+    //             int width = j-i;
+    //             int area = hight * width;
+    //             maxContain = Math.max(maxContain,area);
+                
     //         }
     //     }
-    //     return false;
-    // }
-    public static int maxWAter(int height[]){
-        int maxContain =0;
-        for(int i =0; i<height.length;i++){
-            for(int j =i+1;j<height.length;j++){
-                int hight = Math.min(height[i], height[j]);
-                int width = j-i;
-                int area = hight * width;
-                maxContain = Math.max(maxContain,area);
-                
-            }
-        }
-        return maxContain;
+    //     return maxContain;
+    //}
+    public static int MxcontThreePointer(int height[]){
+          int st =0;
+  int end = height.length-1;
+  int maxWater =0;
+ 
+  while(st!=end){
+      int hight = Math.min(height[st],height[end]);
+    int width = end -st;
+    int contArea = hight*width;
+    maxWater = Math.max(maxWater,contArea);   
+if(st<end){
+    st++;
+}else{
+    end--;
+}
+    
+    
+   
+  }
+       return maxWater;   
     }
+
+    
     public static void main(String args[]){
         System.out.println("hello World");//
-        System.out.println("ArrayS Questions,day 2 || Q.9||container with most water");//27 july 20250
+        System.out.println("ArrayS Q.9||container with most water||optimised");//29 jul
        int height[] = {1,8,6,2,5,4,8,3,7};
-       System.out.println(maxWAter(height));
+       System.out.println( MxcontThreePointer(height));
+      
+      
        
       
 
