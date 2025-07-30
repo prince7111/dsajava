@@ -1,4 +1,5 @@
 package dsajava;
+import java.util.*;
 public class dsaQs {
     //dsa || Array assignment Q.1 || isTwice 
     // public static boolean  isTwice(int nums[]){ 
@@ -169,25 +170,38 @@ public class dsaQs {
 //        return maxWater;   
 //     }
 
-    public static void sortcolour(int nums[]){
-        for(int i=0; i<nums.length-1; i++){
-            for(int j=0; j<nums.length-1-i; j++){
-                if(nums[j]>nums[j+1]){
-                    int temp = nums[j];
-                    nums[j] = nums[j+1];
-                    nums[j+1] = temp;
+    // public static void sortcolour(int nums[]){
+    //     for(int i=0; i<nums.length-1; i++){
+    //         for(int j=0; j<nums.length-1-i; j++){
+    //             if(nums[j]>nums[j+1]){
+    //                 int temp = nums[j];
+    //                 nums[j] = nums[j+1];
+    //                 nums[j+1] = temp;
+    //             }
+    //         }
+    //     }
+    //     for(int i =0; i<nums.length;i++){
+    //         System.out.print(nums[i]+" ");
+    //     }
+
+    // }
+     public static void threeSum(int nums[]){
+        for(int i=0; i<nums.length;i++){
+            for(int j =i+1; j<nums.length;j++){
+                for(int k =j+1; k<nums.length;k++){
+                    ArrayList<Integer>list = new ArrayList<>();
+                    if((nums[i]+nums[j]+nums[k]==0)&& i!=j && i!=k && j !=k){
+                        list.add(nums[i]);list.add(nums[j]);list.add(nums[k]);
+                        System.out.println(list);
                 }
             }
         }
-        for(int i =0; i<nums.length;i++){
-            System.out.print(nums[i]+" ");
-        }
-
+     }
     }
-     
     public static void main(String args[]){
-        int nums[] = {2,0,2,1,1,0};
-        sortcolour(nums);
+        int nums[] = {-1,0,1,2,-1,-4};
+        threeSum(nums);
+      
     }
 }
 
