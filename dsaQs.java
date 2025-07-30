@@ -148,34 +148,33 @@ public class dsaQs {
     //     }
     //     return maxContain;
     //}
-    public static int MxcontThreePointer(int height[]){
-          int st =0;
-  int end = height.length-1;
-  int maxWater =0;
+    // public static int MxcontThreePointer(int height[]){
+//           int st =0;
+//   int end = height.length-1;
+//   int maxWater =0;
  
-  while(st!=end){
-      int hight = Math.min(height[st],height[end]);
-    int width = end -st;
-    int contArea = hight*width;
-    maxWater = Math.max(maxWater,contArea);   
-if(st<end){
-    st++;
-}else{
-    end--;
-}
+//   while(st!=end){
+//       int hight = Math.min(height[st],height[end]);
+//     int width = end -st;
+//     int contArea = hight*width;
+//     maxWater = Math.max(maxWater,contArea);   
+// if(st<end){
+//     st++;
+// }else{
+//     end--;
+// }
     
     
    
-  }
-       return maxWater;   
-    }
+//   }
+//        return maxWater;   
+//     }
 
     
     public static void main(String args[]){
         System.out.println("hello World");//
-        System.out.println("ArrayS Q.9||container with most water||optimised");//29 jul
-       int height[] = {1,8,6,2,5,4,8,3,7};
-       System.out.println( MxcontThreePointer(height));
+        System.out.println("ArrayS Q.10||Sort array 0s ,1s ,2s");//30 july
+        
       
       
        
