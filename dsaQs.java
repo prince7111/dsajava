@@ -1,5 +1,4 @@
 package dsajava;
-import java.util.*;
 public class dsaQs {
     //dsa || Array assignment Q.1 || isTwice 
     // public static boolean  isTwice(int nums[]){ 
@@ -200,33 +199,32 @@ public class dsaQs {
     // }
     
     //Array Daytwice // Q.12 // four sum
-   public static void forSum(int nums[]){
-        int n =nums.length;
-        for(int i=0;i<n;i++){
-            for(int j =i+1; j<n;j++){
-                for(int k =j+1;k<n;k++){
-                    for(int l =k+1;l<n;l++){
-                        if((nums[i]+nums[j]+nums[k]+nums[l]==0)){
-                            ArrayList<Integer>list = new ArrayList<>();
-                            list.add(nums[i]);
-                            list.add(nums[j]);
-                            list.add(nums[k]);
-                            list.add(nums[l]);
-                            System.out.println(list);
-                        }
-                    }
-                }
-            }
-        }
+//    public static void forSum(int nums[]){
+//         int n =nums.length;
+//         for(int i=0;i<n;i++){
+//             for(int j =i+1; j<n;j++){
+//                 for(int k =j+1;k<n;k++){
+//                     for(int l =k+1;l<n;l++){
+//                         if((nums[i]+nums[j]+nums[k]+nums[l]==0)){
+//                             ArrayList<Integer>list = new ArrayList<>();
+//                             list.add(nums[i]);
+//                             list.add(nums[j]);
+//                             list.add(nums[k]);
+//                             list.add(nums[l]);
+//                             System.out.println(list);
+//                         }
+//                     }
+//                 }
+//             }
+//         }
         
-    }
+//     }
 
     public static void main(String args[]){
-        System.err.println("Hello world");
-        System.out.println("|| java Arryas || D2 || Q.12 || Medium || 4 sum || brute force ||");
-        int nums[] = {1,0,-1,0,-2,2};
-        forSum(nums);
-     
+        System.out.println("Hello World");
+        System.out.println("|java dsa | d2 Q 13 || ............/,,,,,///,,..../");
+        System.err.println("1");
+      
     }
 }
 
