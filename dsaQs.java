@@ -180,28 +180,53 @@ public class dsaQs {
     //             }
     //         }
     //     }
-    //     for(int i =0; i<nums.length;i++){
-    //         System.out.print(nums[i]+" ");
-    //     }
+    // //     for(int i =0; i<nums.length;i++){
+    // //         System.out.print(nums[i]+" ");
+    // //     }
 
+    // // }
+    //  public static void threeSum(int nums[]){
+    //     for(int i=0; i<nums.length;i++){
+    //         for(int j =i+1; j<nums.length;j++){
+    //             for(int k =j+1; k<nums.length;k++){
+    //                 ArrayList<Integer>list = new ArrayList<>();
+    //                 if((nums[i]+nums[j]+nums[k]==0)&& i!=j && i!=k && j !=k){
+    //                     list.add(nums[i]);list.add(nums[j]);list.add(nums[k]);
+    //                     System.out.println(list);
+    //             }
+    //         }
+    //     }
+    //  }
     // }
-     public static void threeSum(int nums[]){
-        for(int i=0; i<nums.length;i++){
-            for(int j =i+1; j<nums.length;j++){
-                for(int k =j+1; k<nums.length;k++){
-                    ArrayList<Integer>list = new ArrayList<>();
-                    if((nums[i]+nums[j]+nums[k]==0)&& i!=j && i!=k && j !=k){
-                        list.add(nums[i]);list.add(nums[j]);list.add(nums[k]);
-                        System.out.println(list);
+    
+    //Array Daytwice // Q.12 // four sum
+   public static void forSum(int nums[]){
+        int n =nums.length;
+        for(int i=0;i<n;i++){
+            for(int j =i+1; j<n;j++){
+                for(int k =j+1;k<n;k++){
+                    for(int l =k+1;l<n;l++){
+                        if((nums[i]+nums[j]+nums[k]+nums[l]==0)){
+                            ArrayList<Integer>list = new ArrayList<>();
+                            list.add(nums[i]);
+                            list.add(nums[j]);
+                            list.add(nums[k]);
+                            list.add(nums[l]);
+                            System.out.println(list);
+                        }
+                    }
                 }
             }
         }
-     }
+        
     }
+
     public static void main(String args[]){
-        int nums[] = {-1,0,1,2,-1,-4};
-        threeSum(nums);
-      
+        System.err.println("Hello world");
+        System.out.println("|| java Arryas || D2 || Q.12 || Medium || 4 sum || brute force ||");
+        int nums[] = {1,0,-1,0,-2,2};
+        forSum(nums);
+     
     }
 }
 
