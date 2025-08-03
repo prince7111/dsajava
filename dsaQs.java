@@ -255,46 +255,57 @@ public class dsaQs {
 
 
 
-    public static void nextPermutation(int[] nums) {
-        int i = nums.length - 2;
-        while (i >= 0 && nums[i] >= nums[i + 1]) {
-            i--;
-        }
-        if (i >= 0) {
-            int j = nums.length - 1;
-            while (j >= 0 && nums[j] <= nums[i]) {
-                j--;
-            }
-            swap(nums, i, j);
-        }
-
-        reverse(nums, i + 1);
-    }
-    public static void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-
-    public static void reverse(int[] nums, int start) {
-        int i = start, j = nums.length - 1;
-        while (i < j) {
-            swap(nums, i, j);
-            i++;
-            j--;
-        }
-    }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
-        
-
-        nextPermutation(nums);
-        
-        // आउटपुट: [1, 3, 2]
-        for (int num : nums) {
-            System.out.print(num + " ");
+        int[] nums = {1,2,3,6,5,4};
+        int n =nums.length;
+        int piv =-1;
+        for(int i =n-2;i>=0;i--){
+            if(nums[i]<nums[i+1]){
+                piv =i;
+                break;
+            }
         }
+        if(piv ==-1){
+                int start = 0;
+        int end = n - 1;
+
+        // While loop का इस्तेमाल करके array को reverse करें
+        while (start < end) {
+            // Elements को swap (बदलना) करें
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+
+            // Pointers को आगे बढ़ाएं
+            start++;
+            end--;
+        }
+        }
+        //rms 
+        for(int i =n-1;i>piv;i--){
+            if(nums[i]>nums[piv]){
+                int temp =nums[i];
+                nums[i] = nums[piv];
+                nums[piv] =temp;
+                break;
+
+            }
+        }
+        int i =piv+1;int j =n-1;
+        while(i<j){
+            int temp =nums[i];
+            nums[i] = nums[j];
+            nums[j] =temp;
+            i++;j--;
+        }
+       for(int k=0; k<n; k++) {
+        System.out.print(nums[k] + " ");
     }
-}
+        
+        }
+
+  
+    }
+
 
