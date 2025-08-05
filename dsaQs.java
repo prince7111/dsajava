@@ -285,9 +285,33 @@ for(int k =0; k<nums.length;k++)
     
 }
    }
+   //2,0,2,1,1,0
+   public static void sortColOptimize(int nums[]){
+    int st =0;int mid =0;int end =nums.length-1;
+    while(mid<=end){
+        if(nums[mid]==0){
+            int temp = nums[mid];
+             nums[mid] = nums[st];
+             nums[st] = temp;
+             st++;mid++;
+        }else if(nums[mid]==1){
+            mid++;
+
+        }else{
+            int temp = nums[mid];
+            nums[mid] = nums[end];
+            nums[end] =temp;
+            end--;
+        }
+    }
+    for(int num : nums){
+    System.out.print(num+" ");
+    }
+   }
 
     public static void main(String[] args) {
         int nums[] = {2,0,2,1,1,0};
-        sortCol2(nums);
+        sortColOptimize(nums);
+       
     }
 }
