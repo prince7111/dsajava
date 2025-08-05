@@ -169,19 +169,20 @@ public class dsaQs {
 //        return maxWater;   
 //     }
 
-    // public static void sortcolour(int nums[]){
-    //     for(int i=0; i<nums.length-1; i++){
-    //         for(int j=0; j<nums.length-1-i; j++){
-    //             if(nums[j]>nums[j+1]){
-    //                 int temp = nums[j];
-    //                 nums[j] = nums[j+1];
-    //                 nums[j+1] = temp;
-    //             }
-    //         }
-    //     }
-    // //     for(int i =0; i<nums.length;i++){
-    // //         System.out.print(nums[i]+" ");
-    // //     }
+    public static void sortcolour(int nums[]){
+        for(int i=0; i<nums.length-1; i++){
+            for(int j=0; j<nums.length-1-i; j++){
+                if(nums[j]>nums[j+1]){
+                    int temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                }
+            }
+        }
+        for(int i =0; i<nums.length;i++){
+            System.out.print(nums[i]+" ");
+     }
+    }
 
     // // }
     //  public static void threeSum(int nums[]){
@@ -254,58 +255,39 @@ public class dsaQs {
 //     }
 
 
+   public static void sortCol2(int nums[]){
+    int fre0 = 0;int fre1 = 0;int fre2 =0;
+    for(int num : nums){
+        if(num ==0){
+            fre0++;
+        }else if(num ==1){
+            fre1++;
+        }else{
+            fre2++;
+        }
+        
+    }
+   
+  int idx =0;
+  for(int i =0; i< fre0;i++){
+    nums[idx++] =0;
+  }
+   for(int i =0; i< fre1;i++){
+    nums[idx++] =1;
+  }
+  for(int i =0; i< fre1;i++){
+    nums[idx++] =2;
+  }
 
+
+for(int k =0; k<nums.length;k++)
+{ System.out.print(nums[k]+" ");
+    
+}
+   }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3,6,5,4};
-        int n =nums.length;
-        int piv =-1;
-        for(int i =n-2;i>=0;i--){
-            if(nums[i]<nums[i+1]){
-                piv =i;
-                break;
-            }
-        }
-        if(piv ==-1){
-                int start = 0;
-        int end = n - 1;
-
-        // While loop का इस्तेमाल करके array को reverse करें
-        while (start < end) {
-            // Elements को swap (बदलना) करें
-            int temp = nums[start];
-            nums[start] = nums[end];
-            nums[end] = temp;
-
-            // Pointers को आगे बढ़ाएं
-            start++;
-            end--;
-        }
-        }
-        //rms 
-        for(int i =n-1;i>piv;i--){
-            if(nums[i]>nums[piv]){
-                int temp =nums[i];
-                nums[i] = nums[piv];
-                nums[piv] =temp;
-                break;
-
-            }
-        }
-        int i =piv+1;int j =n-1;
-        while(i<j){
-            int temp =nums[i];
-            nums[i] = nums[j];
-            nums[j] =temp;
-            i++;j--;
-        }
-       for(int k=0; k<n; k++) {
-        System.out.print(nums[k] + " ");
+        int nums[] = {2,0,2,1,1,0};
+        sortCol2(nums);
     }
-        
-        }
-
-  
-    }
-
-
+}
