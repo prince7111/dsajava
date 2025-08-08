@@ -255,63 +255,79 @@ public class dsaQs {
 //     }
 
 
-   public static void sortCol2(int nums[]){
-    int fre0 = 0;int fre1 = 0;int fre2 =0;
-    for(int num : nums){
-        if(num ==0){
-            fre0++;
-        }else if(num ==1){
-            fre1++;
-        }else{
-            fre2++;
-        }
+//    public static void sortCol2(int nums[]){
+//     int fre0 = 0;int fre1 = 0;int fre2 =0;
+//     for(int num : nums){
+//         if(num ==0){
+//             fre0++;
+//         }else if(num ==1){
+//             fre1++;
+//         }else{
+//             fre2++;
+//         }
         
-    }
+//     }
    
-  int idx =0;
-  for(int i =0; i< fre0;i++){
-    nums[idx++] =0;
-  }
-   for(int i =0; i< fre1;i++){
-    nums[idx++] =1;
-  }
-  for(int i =0; i< fre1;i++){
-    nums[idx++] =2;
-  }
+//   int idx =0;
+//   for(int i =0; i< fre0;i++){
+//     nums[idx++] =0;
+//   }
+//    for(int i =0; i< fre1;i++){
+//     nums[idx++] =1;
+//   }
+//   for(int i =0; i< fre1;i++){
+//     nums[idx++] =2;
+//   }
 
 
-for(int k =0; k<nums.length;k++)
-{ System.out.print(nums[k]+" ");
+// for(int k =0; k<nums.length;k++)
+// { System.out.print(nums[k]+" ");
     
-}
-   }
-   //2,0,2,1,1,0
-   public static void sortColOptimize(int nums[]){
-    int st =0;int mid =0;int end =nums.length-1;
-    while(mid<=end){
-        if(nums[mid]==0){
-            int temp = nums[mid];
-             nums[mid] = nums[st];
-             nums[st] = temp;
-             st++;mid++;
-        }else if(nums[mid]==1){
-            mid++;
+// }
+//    }
+//    //2,0,2,1,1,0
+//    public static void sortColOptimize(int nums[]){
+//     int st =0;int mid =0;int end =nums.length-1;
+//     while(mid<=end){
+//         if(nums[mid]==0){
+//             int temp = nums[mid];
+//              nums[mid] = nums[st];
+//              nums[st] = temp;
+//              st++;mid++;
+//         }else if(nums[mid]==1){
+//             mid++;
 
-        }else{
-            int temp = nums[mid];
-            nums[mid] = nums[end];
-            nums[end] =temp;
-            end--;
+//         }else{
+//             int temp = nums[mid];
+//             nums[mid] = nums[end];
+//             nums[end] =temp;
+//             end--;
+//         }
+//     }
+//     for(int num : nums){
+//     System.out.print(num+" ");
+//     }
+//    }{
+public static void bubbleSort(int arr[]){
+    for(int i =0; i<arr.length-1;i++){
+        for(int j =0;j<arr.length-1-i;j++){
+            if(arr[j]>arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
         }
     }
-    for(int num : nums){
-    System.out.print(num+" ");
-    }
-   }
-
+}
+  
+ 
     public static void main(String[] args) {
-        int nums[] = {2,0,2,1,1,0};
-        sortColOptimize(nums);
+        int arr[] =  {5,4,1,3,2};
+        bubbleSort(arr);
        
+        for(int i =0; i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+         
     }
 }
