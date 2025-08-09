@@ -29,23 +29,44 @@ public class RoughNoteBook{
   //   }
 
 
-    public static void insertionSort(int arr[]){
-      for(int i =1;i<arr.length;i++){
-        int current = arr[i];
-        int previos = i-1;
-        while(previos>=0 && arr[previos]> current){
-          arr[previos+1] = arr[previos];
-          previos--;
+    // public static void insertionSort(int arr[]){
+    //   for(int i =1;i<arr.length;i++){
+    //     int current = arr[i];
+    //     int previos = i-1;
+    //     while(previos>=0 && arr[previos]> current){
+    //       arr[previos+1] = arr[previos];
+    //       previos--;
+    //     }
+    //     arr[previos+1] = current;
+    //   }
+    // }
+    public static void countSort(int arr[]){
+      int larg = Integer.MIN_VALUE;
+      for(int i =0; i<arr.length;i++){
+        larg = Math.max(arr[i], larg);
+      }
+      int count[] = new int[larg+1];
+      for(int i=0; i<arr.length;i++){
+        count[arr[i]]++;
+      }
+      //sort 
+      int j =0;
+      for(int i =0; i<count.length;i++){
+        while (count[i]>0) {
+          arr[j] =i;
+          j++;
+           count[i]--;
         }
-        arr[previos+1] = current;
+       
       }
     }
     public static void main(String args[]){ 
       int arr[] = {5,4,1,3,2};
-      insertionSort(arr);
+      countSort(arr);
       for(int i =0; i<arr.length;i++){
         System.out.print(arr[i]+" ");
       }
+   
    
     }
   }
