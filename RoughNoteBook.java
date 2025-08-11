@@ -40,34 +40,47 @@ public class RoughNoteBook{
     //     arr[previos+1] = current;
     //   }
     // }
-    public static void countSort(int arr[]){
-      int larg = Integer.MIN_VALUE;
-      for(int i =0; i<arr.length;i++){
-        larg = Math.max(arr[i], larg);
-      }
-      int count[] = new int[larg+1];
-      for(int i=0; i<arr.length;i++){
-        count[arr[i]]++;
-      }
-      //sort 
-      int j =0;
-      for(int i =0; i<count.length;i++){
-        while (count[i]>0) {
-          arr[j] =i;
-          j++;
-           count[i]--;
-        }
+    // public static void countSort(int arr[]){
+    //   int larg = Integer.MIN_VALUE;
+    //   for(int i =0; i<arr.length;i++){
+    //     larg = Math.max(arr[i], larg);
+    //   }
+    //   int count[] = new int[larg+1];
+    //   for(int i=0; i<arr.length;i++){
+    //     count[arr[i]]++;
+    //   }
+    //   //sort 
+    //   int j =0;
+    //   for(int i =0; i<count.length;i++){
+    //     while (count[i]>0) {
+    //       arr[j] =i;
+    //       j++;
+    //        count[i]--;
+    //     }
        
+    //   }
+    // }
+    public static void bubbleSort(int arr[]){
+      for(int i =0; i<arr.length-1;i++){
+        for(int j =0; j<arr.length-1-i;j++){
+          if(arr[j]>arr[j+1]){
+            int temp =arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = temp;
+          }
+        }
       }
     }
-    public static void main(String args[]){ 
-      int arr[] = {5,4,1,3,2};
-      countSort(arr);
+    public static void prntFunction(int arr[]){
       for(int i =0; i<arr.length;i++){
         System.out.print(arr[i]+" ");
       }
-   
-   
+    }
+    public static void main(String args[]){ 
+      int arr[] = {3,6,2,1,8,7,4,5,3,1};
+      bubbleSort(arr);
+      prntFunction(arr);
+         
     }
   }
   
