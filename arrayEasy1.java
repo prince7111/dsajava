@@ -78,10 +78,37 @@ public class arrayEasy1 {
             }
             return maxProfit;
         }
+        public static int[] findValue(int grid[][]){
+            int row = grid.length;
+            int col = grid[0].length;
+            HashMap<Integer,Integer> map = new  HashMap<>();
+          for(int i =0; i<row;i++){
+            for(int j =0; j<col;j++){
+                int num = grid[i][j];
+                map.put(num, map.getOrDefault(num, 0)+1);
+            }
+          }
+          int totEl = row*col;
+          int repeating = -1;
+          int missing = -1;
+          for(int i =1; i<=totEl;i++){
+            if(map.containsKey(i)){
+                if(map.get(i)==2){
+                    repeating =i;
+                }
+            }else{
+                missing =i;
+            }
+          }
+          return new int[] {repeating,missing};
+        }
     public static void main(String args[]){
-        // Input: prices = [7,1,5,3,6,4]
-        int price[] ={7,1,5,3,6,4};
-        System.out.println(buyAndSellStocks(price));
+     int grid [][]= {{1,3},{2,2}};
+     int result[] = findValue(grid);
+     System.out.println(Arrays.toString(result));
+     
+     
+
        
 
 
