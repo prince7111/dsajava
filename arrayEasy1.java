@@ -56,14 +56,18 @@ public class arrayEasy1 {
 
 
         }
-        
+        public static int singleNumberOP(int nums[]){
+            int res =0;
+            for(int n : nums){
+                res= res^n;
+            }
+            return res;
 
-        
-    
-   
+        }
     public static void main(String args[]){
-        int nums[] = {2,2,1}; ///1
-        System.out.println(singleNUm(nums));
+        int nums[] = {2,1,2}; 
+        System.out.println(singleNumberOP(nums));
+      
         
    
     }    
