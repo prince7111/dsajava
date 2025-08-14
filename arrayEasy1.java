@@ -120,12 +120,24 @@ public class arrayEasy1 {
             }
             return new int [] {rep,missing};
         }
+        public static int singleNum(int matrix[]){
+            for(int i =0;i<matrix.length;i++){
+                int count =0;
+                for(int j =0; j<matrix.length;j++){
+                    if(matrix[i]==matrix[j]){
+                        count++;
+                    }
+                    if(count==1){
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
     public static void main(String args[]){
-     int matrix[]= {1,3,2,2};
-     int res[]= findmissingAndRepeteadInPlace(matrix);
+     int matrix[]= {2,2,1};
+     System.out.println(singleNUm(matrix));
      
-     System.out.println("rep"+res[0]);
-     System.out.println("mis"+res[1]);
      
      
      
