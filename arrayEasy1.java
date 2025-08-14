@@ -102,10 +102,31 @@ public class arrayEasy1 {
           }
           return new int[] {repeating,missing};
         }
+        public static int []findmissingAndRepeteadInPlace(int matrix[]){
+            int rep =-1;
+            for(int i =0; i<matrix.length;i++){
+                int index =Math.abs(matrix[i])-1;
+                if(matrix[index]<0){
+                    rep = Math.abs(matrix[i]);
+                }else{
+                    matrix[index] = -matrix[index];
+                }
+            }
+            int missing =-1;
+            for(int i =0; i<matrix.length;i++){
+                if(matrix[i]>0){
+                    missing = i+1;
+                }
+            }
+            return new int [] {rep,missing};
+        }
     public static void main(String args[]){
-     int grid [][]= {{1,3},{2,2}};
-     int result[] = findValue(grid);
-     System.out.println(Arrays.toString(result));
+     int matrix[]= {1,3,2,2};
+     int res[]= findmissingAndRepeteadInPlace(matrix);
+     
+     System.out.println("rep"+res[0]);
+     System.out.println("mis"+res[1]);
+     
      
      
 
