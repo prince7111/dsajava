@@ -134,9 +134,16 @@ public class arrayEasy1 {
             }
             return -1;
         }
+        public static int singleNUmXor(int matrix[]){
+            int resultant =0;
+            for(int num:matrix){
+                resultant^=num;
+            }
+            return resultant;
+        }
     public static void main(String args[]){
      int matrix[]= {2,2,1};
-     System.out.println(singleNUm(matrix));
+     System.out.println(singleNUmXor(matrix));
      
      
      
