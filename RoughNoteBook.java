@@ -110,16 +110,50 @@ public class RoughNoteBook{
           endCol--;
         }System.out.println();
     }
+    public static int maximumSSum(int array[]){
+      int cs =0;
+      int mSum=Integer.MIN_VALUE;
+      for(int i =0; i<array.length;i++){
+            cs +=array[i];
+            if(cs<0){
+              cs =0;
+            }
+            mSum = Math.max(mSum,cs);
+      }
+      return mSum;
+    }
+    public static boolean searchInTwoDMatrix(int matrix[][],int key){
+      int row =0; int col =matrix[0].length-1;
+      while(row<=matrix.length-1 && col>=0){
+        if(matrix[row][col]==key){  
+          System.out.println("the key is at index"+row+","+col);
+          return true;
+        
+        }else if(matrix[row][col]>key){
+          col--;
+        }else{
+          row--;
+        }
+      }
+      System.out.println("key not found");
+      return false;
+    }
+    public static int containerWithmostWater(int height[]){
+      int maxwater = Integer.MIN_VALUE;
+      for(int i =0;i<height.length;i++){
+        for(int j =i+1;j<height.length;j++){
+          int h = Math.min(height[i], height[j]);
+          int b = j-i;
+          int curWaterArea =h*b;
+          maxwater = Math.max(curWaterArea, maxwater);
+        }
+      }
+      return maxwater;
+    }
     public static void main(String args[]){ 
-      //spiral matrix
-      int matrix[][] = {{1,2,3,4},
-                        {5,6,7,8},
-                        {9,10,11,12},
-                        {13,14,15,16}};
-                        int m = matrix.length;
-                        int n =matrix[0].length;
-                        spiralMatrixPrint(matrix, m, n);
-         
+      int height[] = {1,8,6,2,5,4,8,3,7};
+      System.out.println(containerWithmostWater(height));
+    
     }
   }
   
