@@ -1,4 +1,8 @@
 package dsajava;
+
+
+import java.util.*;
+
 public class dsaQs {
     //dsa || Array assignment Q.1 || isTwice 
     // public static boolean  isTwice(int nums[]){ 
@@ -167,167 +171,225 @@ public class dsaQs {
    
 //   }
 //        return maxWater;   
-//     }
+// //     }
 
-    public static void sortcolour(int nums[]){
-        for(int i=0; i<nums.length-1; i++){
-            for(int j=0; j<nums.length-1-i; j++){
-                if(nums[j]>nums[j+1]){
-                    int temp = nums[j];
-                    nums[j] = nums[j+1];
-                    nums[j+1] = temp;
-                }
-            }
-        }
-        for(int i =0; i<nums.length;i++){
-            System.out.print(nums[i]+" ");
-     }
-    }
-
-    // // }
-    //  public static void threeSum(int nums[]){
-    //     for(int i=0; i<nums.length;i++){
-    //         for(int j =i+1; j<nums.length;j++){
-    //             for(int k =j+1; k<nums.length;k++){
-    //                 ArrayList<Integer>list = new ArrayList<>();
-    //                 if((nums[i]+nums[j]+nums[k]==0)&& i!=j && i!=k && j !=k){
-    //                     list.add(nums[i]);list.add(nums[j]);list.add(nums[k]);
-    //                     System.out.println(list);
-    //             }
-    //         }
-    //     }
-    //  }
-    // }
-    
-    //Array Daytwice // Q.12 // four sum
-//    public static void forSum(int nums[]){
-//         int n =nums.length;
-//         for(int i=0;i<n;i++){
-//             for(int j =i+1; j<n;j++){
-//                 for(int k =j+1;k<n;k++){
-//                     for(int l =k+1;l<n;l++){
-//                         if((nums[i]+nums[j]+nums[k]+nums[l]==0)){
-//                             ArrayList<Integer>list = new ArrayList<>();
-//                             list.add(nums[i]);
-//                             list.add(nums[j]);
-//                             list.add(nums[k]);
-//                             list.add(nums[l]);
-//                             System.out.println(list);
-//                         }
-//                     }
+//     public static void sortcolour(int nums[]){
+//         for(int i=0; i<nums.length-1; i++){
+//             for(int j=0; j<nums.length-1-i; j++){
+//                 if(nums[j]>nums[j+1]){
+//                     int temp = nums[j];
+//                     nums[j] = nums[j+1];
+//                     nums[j+1] = temp;
 //                 }
 //             }
 //         }
-        
-//     }
-//   public static  void nextPermutation(int[] nums) {
-//          int i = nums.length - 1;
-//         while (i > 0 && nums[i-1] >= nums[i]) {
-//             i--;
-//         }
-//         if (i == 0) {
-//             reverse(nums, 0, nums.length-1);
-//             return;
-//         }
-//         int j = nums.length - 1;
-//         while (j >= i && nums[j] <= nums[i-1]) {
-//             j--;
-//         }
-//         swap(nums, i-1, j);
-//         reverse(nums, i, nums.length-1);
+//         for(int i =0; i<nums.length;i++){
+//             System.out.print(nums[i]+" ");
+//      }
 //     }
 
-//     private void swap(int[] nums, int i, int j) {
-//         int temp = nums[i];
-//         nums[i] = nums[j];
-//         nums[j] = temp;
-//     }
-
-//     private void reverse(int[] nums, int start, int end) {
-//         while (start < end) {
-//             int temp = nums[start];
-//             nums[start] = nums[end];
-//             nums[end] = temp;
-//             start++;
-//             end--;
-//         }
-        
-//     }
-
-
-//    public static void sortCol2(int nums[]){
-//     int fre0 = 0;int fre1 = 0;int fre2 =0;
-//     for(int num : nums){
-//         if(num ==0){
-//             fre0++;
-//         }else if(num ==1){
-//             fre1++;
-//         }else{
-//             fre2++;
-//         }
-        
-//     }
-   
-//   int idx =0;
-//   for(int i =0; i< fre0;i++){
-//     nums[idx++] =0;
-//   }
-//    for(int i =0; i< fre1;i++){
-//     nums[idx++] =1;
-//   }
-//   for(int i =0; i< fre1;i++){
-//     nums[idx++] =2;
-//   }
-
-
-// for(int k =0; k<nums.length;k++)
-// { System.out.print(nums[k]+" ");
+//     // // }
+//     //  public static void threeSum(int nums[]){
+//     //     for(int i=0; i<nums.length;i++){
+//     //         for(int j =i+1; j<nums.length;j++){
+//     //             for(int k =j+1; k<nums.length;k++){
+//     //                 ArrayList<Integer>list = new ArrayList<>();
+//     //                 if((nums[i]+nums[j]+nums[k]==0)&& i!=j && i!=k && j !=k){
+//     //                     list.add(nums[i]);list.add(nums[j]);list.add(nums[k]);
+//     //                     System.out.println(list);
+//     //             }
+//     //         }
+//     //     }
+//     //  }
+//     // }
     
-// }
-//    }
-//    //2,0,2,1,1,0
-//    public static void sortColOptimize(int nums[]){
-//     int st =0;int mid =0;int end =nums.length-1;
-//     while(mid<=end){
-//         if(nums[mid]==0){
-//             int temp = nums[mid];
-//              nums[mid] = nums[st];
-//              nums[st] = temp;
-//              st++;mid++;
-//         }else if(nums[mid]==1){
-//             mid++;
+//     //Array Daytwice // Q.12 // four sum
+// //    public static void forSum(int nums[]){
+// //         int n =nums.length;
+// //         for(int i=0;i<n;i++){
+// //             for(int j =i+1; j<n;j++){
+// //                 for(int k =j+1;k<n;k++){
+// //                     for(int l =k+1;l<n;l++){
+// //                         if((nums[i]+nums[j]+nums[k]+nums[l]==0)){
+// //                             ArrayList<Integer>list = new ArrayList<>();
+// //                             list.add(nums[i]);
+// //                             list.add(nums[j]);
+// //                             list.add(nums[k]);
+// //                             list.add(nums[l]);
+// //                             System.out.println(list);
+// //                         }
+// //                     }
+// //                 }
+// //             }
+// //         }
+        
+// //     }
+// //   public static  void nextPermutation(int[] nums) {
+// //          int i = nums.length - 1;
+// //         while (i > 0 && nums[i-1] >= nums[i]) {
+// //             i--;
+// //         }
+// //         if (i == 0) {
+// //             reverse(nums, 0, nums.length-1);
+// //             return;
+// //         }
+// //         int j = nums.length - 1;
+// //         while (j >= i && nums[j] <= nums[i-1]) {
+// //             j--;
+// //         }
+// //         swap(nums, i-1, j);
+// //         reverse(nums, i, nums.length-1);
+// //     }
 
-//         }else{
-//             int temp = nums[mid];
-//             nums[mid] = nums[end];
-//             nums[end] =temp;
-//             end--;
+// //     private void swap(int[] nums, int i, int j) {
+// //         int temp = nums[i];
+// //         nums[i] = nums[j];
+// //         nums[j] = temp;
+// //     }
+
+// //     private void reverse(int[] nums, int start, int end) {
+// //         while (start < end) {
+// //             int temp = nums[start];
+// //             nums[start] = nums[end];
+// //             nums[end] = temp;
+// //             start++;
+// //             end--;
+// //         }
+        
+// //     }
+
+
+// //    public static void sortCol2(int nums[]){
+// //     int fre0 = 0;int fre1 = 0;int fre2 =0;
+// //     for(int num : nums){
+// //         if(num ==0){
+// //             fre0++;
+// //         }else if(num ==1){
+// //             fre1++;
+// //         }else{
+// //             fre2++;
+// //         }
+        
+// //     }
+   
+// //   int idx =0;
+// //   for(int i =0; i< fre0;i++){
+// //     nums[idx++] =0;
+// //   }
+// //    for(int i =0; i< fre1;i++){
+// //     nums[idx++] =1;
+// //   }
+// //   for(int i =0; i< fre1;i++){
+// //     nums[idx++] =2;
+// //   }
+
+
+// // for(int k =0; k<nums.length;k++)
+// // { System.out.print(nums[k]+" ");
+    
+// // }
+// //    }
+// //    //2,0,2,1,1,0
+// //    public static void sortColOptimize(int nums[]){
+// //     int st =0;int mid =0;int end =nums.length-1;
+// //     while(mid<=end){
+// //         if(nums[mid]==0){
+// //             int temp = nums[mid];
+// //              nums[mid] = nums[st];
+// //              nums[st] = temp;
+// //              st++;mid++;
+// //         }else if(nums[mid]==1){
+// //             mid++;
+
+// //         }else{
+// //             int temp = nums[mid];
+// //             nums[mid] = nums[end];
+// //             nums[end] =temp;
+// //             end--;
+// //         }
+// //     }
+// //     for(int num : nums){
+// //     System.out.print(num+" ");
+// //     }
+// //    }{
+// // public static void bubbleSort(int arr[]){
+// //     for(int i =0; i<arr.length-1;i++){
+// //         for(int j =0;j<arr.length-1-i;j++){
+// //             if(arr[j]>arr[j+1]){
+// //                 int temp = arr[j];
+// //                 arr[j] = arr[j+1];
+// //                 arr[j+1] = temp;
+// //             }
+// //         }
+// //     }
+// // }
+
+  
+//      public static int diagSum(int mat[][]){
+//         int tSum=0;
+//         int prime =0;
+//         int secondry =0;
+//         for(int i =0; i<mat.length;i++){
+//             for(int j =0;j<mat[0].length;j++){
+//                 if(i==j){
+//                     prime+=mat[i][j];
+//                 }
+//                 if(i+j==mat.length-1){
+//                     secondry+=mat[i][j];
+//                 }
+//             }
+//             tSum =prime+secondry;
 //         }
-//     }
-//     for(int num : nums){
-//     System.out.print(num+" ");
-//     }
-//    }{
-public static void bubbleSort(int arr[]){
-    for(int i =0; i<arr.length-1;i++){
-        for(int j =0;j<arr.length-1-i;j++){
-            if(arr[j]>arr[j+1]){
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+//         System.out.println("primry diagonal:"+prime);
+//         System.out.println("secondry diagonal:"+secondry);
+//         return tSum;
+//      }
+//      public static void colorSorting(int nums[]){
+//         for(int i=1;i<nums.length;i++){
+//              int pe =i-1;
+//         while(pe>=0 && nums[pe]>nums[i]){
+//             nums[pe+1]=nums[pe];
+//             pe--;
+//         }
+//         //insert 
+//             nums[pe+1] = nums[i];
+
+//    }
+  
+//      }
+   
+    public  List<List<Integer>> threeSum (int nums[]){
+        HashSet<ArrayList<Integer>> outerList = new HashSet<>();      
+         for(int i =0; i<nums.length;i++){
+            for(int j =i+1; j<nums.length;j++){
+                for(int k =j+1;k<nums.length;k++){
+                    int sum =nums[i]+nums[j]+nums[k];
+                    if(sum ==0){
+                        ArrayList<Integer> crTrip =new ArrayList();
+ 
+                        crTrip.add(nums[i]);
+                        crTrip.add(nums[j]);
+                        crTrip.add(nums[k]); 
+                       Collections.sort(crTrip);
+                      outerList.add(crTrip);
+
+                    }
+                }
             }
         }
-    }
-}
-  
- 
-    public static void main(String[] args) {
-        int arr[] =  {5,4,1,3,2};
-        bubbleSort(arr);
+        ArrayList<List<Integer>> resulList = new ArrayList<>(outerList);
+        return resulList;
        
-        for(int i =0; i<arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }
-         
+     }  
+    public static void main(String[] args) {
+  
+       dsaQs solution = new dsaQs(); //////
+    int[] nums = {-1, 0, 1, 2, -1, -4};
+    List<List<Integer>> threesum = solution.threeSum(nums);
+    System.out.println("All unique triplets with a sum of zero are: " + threesum);
+      
+        
+  
     }
+     
 }
