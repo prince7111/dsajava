@@ -345,6 +345,8 @@ public class dsaQs {
 //         return tSum;
 //      }
 //      public static void colorSorting(int nums[]){
+       
+     
 //         for(int i=1;i<nums.length;i++){
 //              int pe =i-1;
 //         while(pe>=0 && nums[pe]>nums[i]){
@@ -359,35 +361,38 @@ public class dsaQs {
 //      }
    
     public  List<List<Integer>> threeSum (int nums[]){
-        HashSet<ArrayList<Integer>> outerList = new HashSet<>();      
+        //-1,0,1,2,-1,4
+        // 0 1 2 3  4 5
+        HashSet<List<Integer>> outerList = new HashSet<>();  
+        HashMap<Integer,Integer> map = new HashMap();    
          for(int i =0; i<nums.length;i++){
+            int A = -nums[i];
             for(int j =i+1; j<nums.length;j++){
-                for(int k =j+1;k<nums.length;k++){
-                    int sum =nums[i]+nums[j]+nums[k];
-                    if(sum ==0){
-                        ArrayList<Integer> crTrip =new ArrayList();
- 
-                        crTrip.add(nums[i]);
-                        crTrip.add(nums[j]);
-                        crTrip.add(nums[k]); 
-                       Collections.sort(crTrip);
-                      outerList.add(crTrip);
-
-                    }
+              
+                if(map.containsKey(A-nums[j])){
+                    ArrayList<Integer> triplet = new ArrayList <>();
+                    triplet.add(nums[i]);
+                      triplet.add(nums[j]);
+                        triplet.add(nums[A-nums[j]]);
+                        Collections.sort(triplet);
+                        outerList.add(triplet);
+                }else{
+                    map.put(nums[j],j);
                 }
             }
         }
-        ArrayList<List<Integer>> resulList = new ArrayList<>(outerList);
-        return resulList;
-       
-     }  
-    public static void main(String[] args) {
-  
-       dsaQs solution = new dsaQs(); //////
-    int[] nums = {-1, 0, 1, 2, -1, -4};
-    List<List<Integer>> threesum = solution.threeSum(nums);
-    System.out.println("All unique triplets with a sum of zero are: " + threesum);
+        List<List<Integer>> reslist = new ArrayList<>(outerList);
+        return reslist;
+        
+
+    }
       
+    public static void main(String[] args) {
+        dsaQs solutions = new dsaQs();
+        int nums[] = {-1,0,1,2,-1,4};
+        List<List<Integer>> threeSum = solutions.threeSum(nums);
+        System.out.println("three sum :"+threeSum);
+  
         
   
     }
