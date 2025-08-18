@@ -1,8 +1,5 @@
 package dsajava;
 
-
-import java.util.*;
-
 public class dsaQs {
     //dsa || Array assignment Q.1 || isTwice 
     // public static boolean  isTwice(int nums[]){ 
@@ -290,109 +287,107 @@ public class dsaQs {
 // // }
 // //    }
 // //    //2,0,2,1,1,0
-// //    public static void sortColOptimize(int nums[]){
-// //     int st =0;int mid =0;int end =nums.length-1;
-// //     while(mid<=end){
-// //         if(nums[mid]==0){
-// //             int temp = nums[mid];
-// //              nums[mid] = nums[st];
-// //              nums[st] = temp;
-// //              st++;mid++;
-// //         }else if(nums[mid]==1){
-// //             mid++;
+// // //    public static void sortColOptimize(int nums[]){
+// // //     int st =0;int mid =0;int end =nums.length-1;
+// // //     while(mid<=end){
+// // //         if(nums[mid]==0){
+// // //             int temp = nums[mid];
+// // //              nums[mid] = nums[st];
+// // //              nums[st] = temp;
+// // //              st++;mid++;
+// // //         }else if(nums[mid]==1){
+// // //             mid++;
 
-// //         }else{
-// //             int temp = nums[mid];
-// //             nums[mid] = nums[end];
-// //             nums[end] =temp;
-// //             end--;
-// //         }
-// //     }
-// //     for(int num : nums){
-// //     System.out.print(num+" ");
-// //     }
-// //    }{
-// // public static void bubbleSort(int arr[]){
-// //     for(int i =0; i<arr.length-1;i++){
-// //         for(int j =0;j<arr.length-1-i;j++){
-// //             if(arr[j]>arr[j+1]){
-// //                 int temp = arr[j];
-// //                 arr[j] = arr[j+1];
-// //                 arr[j+1] = temp;
-// //             }
-// //         }
-// //     }
-// // }
+// // //         }else{
+// // //             int temp = nums[mid];
+// // //             nums[mid] = nums[end];
+// // //             nums[end] =temp;
+// // //             end--;
+// // //         }
+// // //     }
+// // //     for(int num : nums){
+// // //     System.out.print(num+" ");
+// // //     }
+// // //    }{
+// // // public static void bubbleSort(int arr[]){
+// // //     for(int i =0; i<arr.length-1;i++){
+// // //         for(int j =0;j<arr.length-1-i;j++){
+// // //             if(arr[j]>arr[j+1]){
+// // //                 int temp = arr[j];
+// // //                 arr[j] = arr[j+1];
+// // //                 arr[j+1] = temp;
+// // //             }
+// // //         }
+// // //     }
+// // // }
 
   
-//      public static int diagSum(int mat[][]){
-//         int tSum=0;
-//         int prime =0;
-//         int secondry =0;
-//         for(int i =0; i<mat.length;i++){
-//             for(int j =0;j<mat[0].length;j++){
-//                 if(i==j){
-//                     prime+=mat[i][j];
-//                 }
-//                 if(i+j==mat.length-1){
-//                     secondry+=mat[i][j];
-//                 }
-//             }
-//             tSum =prime+secondry;
-//         }
-//         System.out.println("primry diagonal:"+prime);
-//         System.out.println("secondry diagonal:"+secondry);
-//         return tSum;
-//      }
-//      public static void colorSorting(int nums[]){
+// //      public static int diagSum(int mat[][]){
+// //         int tSum=0;
+// //         int prime =0;
+// //         int secondry =0;
+// //         for(int i =0; i<mat.length;i++){
+// //             for(int j =0;j<mat[0].length;j++){
+// //                 if(i==j){
+// //                     prime+=mat[i][j];
+// //                 }
+// //                 if(i+j==mat.length-1){
+// //                     secondry+=mat[i][j];
+// //                 }
+// //             }
+// //             tSum =prime+secondry;
+// //         }
+// //         System.out.println("primry diagonal:"+prime);
+// //         System.out.println("secondry diagonal:"+secondry);
+// //         return tSum;
+// //      }
+// //      public static void colorSorting(int nums[]){
        
      
-//         for(int i=1;i<nums.length;i++){
-//              int pe =i-1;
-//         while(pe>=0 && nums[pe]>nums[i]){
-//             nums[pe+1]=nums[pe];
-//             pe--;
-//         }
-//         //insert 
-//             nums[pe+1] = nums[i];
+// //         for(int i=1;i<nums.length;i++){
+// //              int pe =i-1;
+// //         while(pe>=0 && nums[pe]>nums[i]){
+// //             nums[pe+1]=nums[pe];
+// //             pe--;
+// //         }
+// //         //insert 
+// //             nums[pe+1] = nums[i];
 
-//    }
+// //    }
   
-//      }
+// //      }
    
-    public  List<List<Integer>> threeSum (int nums[]){
-        //-1,0,1,2,-1,4
-        // 0 1 2 3  4 5
-        HashSet<List<Integer>> outerList = new HashSet<>();  
-        HashMap<Integer,Integer> map = new HashMap();    
-         for(int i =0; i<nums.length;i++){
-            int A = -nums[i];
-            for(int j =i+1; j<nums.length;j++){
-              
-                if(map.containsKey(A-nums[j])){
-                    ArrayList<Integer> triplet = new ArrayList <>();
-                    triplet.add(nums[i]);
-                      triplet.add(nums[j]);
-                        triplet.add(nums[A-nums[j]]);
-                        Collections.sort(triplet);
-                        outerList.add(triplet);
-                }else{
-                    map.put(nums[j],j);
-                }
-            }
-        }
-        List<List<Integer>> reslist = new ArrayList<>(outerList);
-        return reslist;
+//     public  List<List<Integer>> threeSum (int nums[]){
+//         //-1,0,1,2,-1,4
+//         // 0 1 2 3  4 5
+//         Arrays.sort(nums);
+//        ArrayList< ArrayList<Integer>> in = new ArrayList<>();
+//       for(int i =0;i<nums.length;i++){
+//         int j =i+1;int k =nums.length-1;
+       
+//         while(j<k){
+//              int sum = nums[i]+nums[j]+nums[k];
+//         if(sum>0){
+//             k--;
+//         }else if(sum<0){
+//             j++;
+//         }else{
+//              ArrayList<Integer> ini = new ArrayList<>();
+            
+//             ini.add(nums[i]);ini.add(nums[j]);ini.add(nums[k]);
+//             in.add(ini);
+
+//         }
+//       }
+//     }
+//         List<List<Integer>> reslist = new ArrayList<>(in);
+//         return reslist;
         
 
-    }
+//     }
       
     public static void main(String[] args) {
-        dsaQs solutions = new dsaQs();
-        int nums[] = {-1,0,1,2,-1,4};
-        List<List<Integer>> threeSum = solutions.threeSum(nums);
-        System.out.println("three sum :"+threeSum);
-  
+
         
   
     }
