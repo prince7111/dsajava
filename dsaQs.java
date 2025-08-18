@@ -1,5 +1,5 @@
 package dsajava;
-
+import java.util.*;
 public class dsaQs {
     //dsa || Array assignment Q.1 || isTwice 
     // public static boolean  isTwice(int nums[]){ 
@@ -344,49 +344,54 @@ public class dsaQs {
 // //      public static void colorSorting(int nums[]){
        
      
-// //         for(int i=1;i<nums.length;i++){
-// //              int pe =i-1;
-// //         while(pe>=0 && nums[pe]>nums[i]){
-// //             nums[pe+1]=nums[pe];
-// //             pe--;
-// //         }
-// //         //insert 
-// //             nums[pe+1] = nums[i];
-
-// //    }
-  
-// //      }
-   
-//     public  List<List<Integer>> threeSum (int nums[]){
-//         //-1,0,1,2,-1,4
-//         // 0 1 2 3  4 5
-//         Arrays.sort(nums);
-//        ArrayList< ArrayList<Integer>> in = new ArrayList<>();
-//       for(int i =0;i<nums.length;i++){
-//         int j =i+1;int k =nums.length-1;
-       
-//         while(j<k){
-//              int sum = nums[i]+nums[j]+nums[k];
-//         if(sum>0){
-//             k--;
-//         }else if(sum<0){
-//             j++;
-//         }else{
-//              ArrayList<Integer> ini = new ArrayList<>();
-            
-//             ini.add(nums[i]);ini.add(nums[j]);ini.add(nums[k]);
-//             in.add(ini);
-
+//         for(int i=1;i<nums.length;i++){
+//              int pe =i-1;
+//         while(pe>=0 && nums[pe]>nums[i]){
+//             nums[pe+1]=nums[pe];
+//             pe--;
 //         }
-//       }
-//     }
-//         List<List<Integer>> reslist = new ArrayList<>(in);
-//         return reslist;
-        
+//         //insert 
+//             nums[pe+1] = nums[i];
 
-//     }
+//    }
+  
+//      }
+   
+    public List<List<Integer>> threeSum (int nums[]){
+        //-1,0,1,2,-1,4
+        //0 1 2 3  4 5
+        Arrays.sort(nums);
+       ArrayList< ArrayList<Integer>> in = new ArrayList<>();
+      for(int i =0;i<nums.length;i++){
+        int j =i+1;int k =nums.length-1;
+       
+        while(j<k){
+             int sum = nums[i]+nums[j]+nums[k];
+        if(sum>0){
+            k--;
+        }else if(sum<0){
+            j++;
+        }else{
+             ArrayList<Integer> ini = new ArrayList<>();
+            
+            ini.add(nums[i]);ini.add(nums[j]);ini.add(nums[k]);
+            in.add(ini);
+            j++; k++;
+
+        }
+      }
+    }
+         List<List<Integer>> reslist = new ArrayList<>(in);
+         return reslist;
+
+
+    }
       
     public static void main(String[] args) {
+        int nums[]= {-1,0,1,2,-1,4};
+        dsaQs solutions = new dsaQs();
+        List<List<Integer>> threeSum = solutions.threeSum(nums);
+        System.out.println("triplets :"+threeSum);
 
         
   
