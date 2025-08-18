@@ -2,7 +2,7 @@ package dsajava;
 import java.util.*;
 public class ArraysTwo {
     public List<List<Integer>> threesumOp(int nums[]){
-       HashSet<List<Integer>> st = new HashSet<>();
+       HashSet<List<Integer>> st = new HashSet();
         HashMap<Integer,Integer> map = new HashMap();
         for(int i =0; i<nums.length;i++){
             int a =-nums[i];
@@ -24,12 +24,47 @@ public class ArraysTwo {
           List<List<Integer>> resList = new ArrayList<>(st);
           return resList;
     }
-    public static void main(String args[]){
-         ArraysTwo solutions = new ArraysTwo();
-        int nums[] = {-1,0,1,2,-1,4};
+    public List<List<Integer>> threesum (int nums[]){
+       ArrayList< ArrayList<Integer>> findtriplet = new ArrayList<>();
+        // two pointer
+        Arrays.sort(nums);
+        for(int i =0;i<nums.length;i++){
+            int st =i+1;
+            int end = nums.length-1;
+            if(i>0 && nums[i]==nums[i-1])continue;
+            while (st<end) {
+                int sum =nums[i]+nums[st]+nums[end];
+            if(sum >0){
+                end--;
+            }else if(sum<0){
+                st++;
+            }else{
+               ArrayList<Integer> currTriplet = new ArrayList<>();
+               currTriplet.add(nums[i]); currTriplet.add(nums[st]); currTriplet.add(nums[end]);
+               findtriplet.add(currTriplet);
+               st++;end--;
+
+            }
+            while(st<end && nums[st]==nums[st-1]){
+                st++;
+            }
+         
+                
+            }
+        }
         
-         List<List<Integer>> threesumOp = solutions.threesumOp(nums);
-        System.out.println("triplet sum"+threesumOp);
+          List<List<Integer>> res= new ArrayList<>(findtriplet);
+          return res;
+
+    }
+    public static void main(String args[]){
+        int nums[] = {-1,0,1,2,-1,-4};
+        ArraysTwo solutions = new ArraysTwo();
+        
+          List<List<Integer>> threesum = solutions.threesum(nums);
+          System.out.println("answer "+threesum);
+
+
     }
     
 }
