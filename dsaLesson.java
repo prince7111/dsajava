@@ -39,19 +39,21 @@ public class dsaLesson {
 
     }
     public static void main(String args[]){
-        String s1 = "tony";
-         String s2 = "pony";
-         String s3 = new String("tony");
-         if(s1==s2){
-            System.out.println("String are equal : s1=s2");
-         }else{
-             System.out.println("String are not equal : s1=s3");
+        String s1 ="apple";
+        String s2 = "mango";
+        String s3 = "banana";
+        int i =0;
+        
+        if(s1.charAt(i)>s2.charAt(i)&&s1.charAt(i)>s3.charAt(i) ){
+            System.out.println("s1 is largest");
+        }else if(s2.charAt(i)>s3.charAt(i)){
+                        System.out.println("s2 is largest");
+            
+        }else{  System.out.println("s3 is largest");
+            
+
         }
-        if(s1==s3){
-            System.out.println("Equals");
-        }else{
-            System.out.println("not eual");
-        }
+        i++;
       
     }
     
