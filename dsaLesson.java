@@ -39,11 +39,20 @@ public class dsaLesson {
 
     }
     public static void main(String args[]){
-       //sortest distance 
-        String str = "WNEENESENNN";
-        System.out.println(displacement(str));
-
-        
+        String s1 = "tony";
+         String s2 = "pony";
+         String s3 = new String("tony");
+         if(s1==s2){
+            System.out.println("String are equal : s1=s2");
+         }else{
+             System.out.println("String are not equal : s1=s3");
+        }
+        if(s1==s3){
+            System.out.println("Equals");
+        }else{
+            System.out.println("not eual");
+        }
+      
     }
     
 }
