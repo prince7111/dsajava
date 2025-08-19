@@ -1,5 +1,4 @@
 package dsajava;
-import java.util.*;
 public class ArraysTwo {
     // public List<List<Integer>> threesumOp(int nums[]){
     //    HashSet<List<Integer>> st = new HashSet();
@@ -84,14 +83,11 @@ public class ArraysTwo {
     //     List<List<Integer>> resultList = new ArrayList<>(uniqTriplet);
     //     return resultList;
     // }
-    public List<List<Integer>> foursumH(int nums[],int target){
-        ArrayList<ArrayList<Integer>> findiTriplet = new arrayEasy1();
-
+   
     
       
     public static void main(String args[]){
-       int nums[] ={1,0,-1,0,-2,2};
-       int target =0;
+      
     }
     
 }

@@ -112,6 +112,7 @@ public class augustArray{
 
         }
     }
+    System.out.println("compl;");
     return new ArrayList<>(result);
  }
     public static void main(String args[]){
