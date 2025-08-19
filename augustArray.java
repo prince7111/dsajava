@@ -56,33 +56,68 @@ public class augustArray{
 //     }
 //     return new ArrayList<>(result);
 //  }
- public List<List<Integer>> fourSum(int nums[],int tar){
+//  public List<List<Integer>> fourSum(int nums[],int tar){
 
-    Set<List<Integer>> findTriplet = new HashSet<>();
-    int n =nums.length;
-    for(int i =0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            for(int k =j+1;k<n;k++){
-                for(int l =k+1;l<n;l++){
-                    int s = nums[i]+nums[j]+nums[k]+nums[l];
-                    if(s ==0){
-                    ArrayList<Integer> cT = new ArrayList<>();
-                    cT.add(nums[i]);cT.add(nums[j]);cT.add(nums[k]);cT.add(nums[l]);
-                    Collections.sort(cT);
-                    findTriplet.add(cT);                    
-                }
+//     Set<List<Integer>> findTriplet = new HashSet<>();
+//     int n =nums.length;
+//     for(int i =0;i<n;i++){
+//         for(int j=i+1;j<n;j++){
+//             for(int k =j+1;k<n;k++){
+//                 for(int l =k+1;l<n;l++){
+//                     int s = nums[i]+nums[j]+nums[k]+nums[l];
+//                     if(s ==0){
+//                     ArrayList<Integer> cT = new ArrayList<>();
+//                     cT.add(nums[i]);cT.add(nums[j]);cT.add(nums[k]);cT.add(nums[l]);
+//                     Collections.sort(cT);
+//                     findTriplet.add(cT);                    
+//                 }
                     
+//                 }
+//             }
+//         }
+//     }
+//      List<List<Integer>> result = new ArrayList<>(findTriplet);
+//     return result;
+//  }
+ public List<List<Integer>> foursumm(int nums[],int tar){
+    int n = nums.length;
+    List<List<Integer>> result = new ArrayList<>();
+    Arrays.sort(nums);
+    for(int i =0; i<n;i++){
+        if(i>0 && nums[i]==nums[i-1])continue;
+        for(int j =i+1;j<n;j++){
+
+            int s = j+1; int e = n-1;
+             
+             while(s<e){
+                int sum = nums[i]+nums[j]+nums[s]+nums[e];
+                if(sum<tar){
+                    s++;
+                }else if(sum>tar){
+                    e--;
+                }else{
+                    List<Integer> cTrip = new ArrayList <>();
+                    cTrip.add(nums[i]);  cTrip.add(nums[j]);  cTrip.add(nums[s]);  cTrip.add(nums[e]);
+                    result.add(cTrip);
+                    s++;e--;
+                    while(s<e && nums[s]==nums[s-1]){
+                        s++;
+                    }
+                    while(s<e && nums[e]==nums[e-1]){
+                        e--;
+                    }
+
                 }
-            }
+             }
+
         }
     }
-     List<List<Integer>> result = new ArrayList<>(findTriplet);
-    return result;
+    return new ArrayList<>(result);
  }
     public static void main(String args[]){
         augustArray sol = new augustArray();
-        int nums[]= {1,0,-1,0,-2,2};int tar =0;
-        List<List<Integer>> res=sol.fourSum(nums, tar);
+        int nums[]= {2,2,2,2,};int tar =8;
+        List<List<Integer>> res=sol.foursumm(nums, tar);
          System.out.println(res);
     }
 }
