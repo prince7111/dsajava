@@ -1,6 +1,8 @@
 package dsajava;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class arraysThree {
     //         public static void nextPermutation (int nums[],int n){
@@ -88,7 +90,7 @@ public class arraysThree {
                 }else{
                     charSet.add(curkar);
                     int curLength = j-i+1;
-                    System.out.print(curLength+" ");
+                 
                     maxLenght =Math.max(curLength, maxLenght);
 
                 }
@@ -97,9 +99,27 @@ public class arraysThree {
         return maxLenght;
 
     }
+     public static int lengthOfLongestSubstringMap(String s) {
+        int n = s.length();
+        int maxLength = 0;
+        Map<Character, Integer> charMap = new HashMap<>();
+        int left = 0;
+        for (int right = 0; right < n; right++) {
+            char currentChar = s.charAt(right);
+              if (charMap.containsKey(currentChar) && charMap.get(currentChar) >= left) {
+                left = charMap.get(currentChar) + 1;
+            }
+   
+            charMap.put(currentChar, right);
+            int currentLength = right - left + 1;
+            maxLength = Math.max(maxLength, currentLength);
+        }
+        
+        return maxLength;
+    }
     public static void main(String args[]){
         String s = "abcabcbb";//abcabcbb //bbbb
-        System.out.println("the longest subsubString without repeating "+longestSubStringBetter(s));
+        System.out.println("the longest subsubString without repeating "+lengthOfLongestSubstringMap(s));
       
     }
 }
