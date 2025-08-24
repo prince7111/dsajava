@@ -112,9 +112,34 @@ public class dsaLesson {
         }
         return sb.toString();
     }
+     public static boolean isAnargam(String s1,String s2){
+      boolean isAnar = true;
+      if(s1.length()!=s2.length()){return false;}
+
+      for(int i =0;i<s1.length();i++){
+        int count =0;
+        for(int j =0; j<s1.length();j++){
+          if(s1.charAt(i)!=s2.charAt(j)){
+            count++;
+          }else{
+            System.out.println("..");
+          }
+        }
+        if(count==s1.length()){
+          isAnar =false;
+        }
+      }
+      return isAnar;
+
+    }
     public static void main(String args[]){
-       String s = "aaabbcccdd";
-       System.out.println(compressString(s));
+              String s1 = "race";
+      String s2 = "care";
+      System.out.println(isAnargam(s1, s2));
+    
+      
+
+      
        
         }
     }

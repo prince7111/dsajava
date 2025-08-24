@@ -189,14 +189,48 @@ public class RoughNoteBook{
 
 
   }
-        public static void main(String args[]){ 
-       int nums[] ={1,0,-1,0,-2,2};
-        int target =0;
-        RoughNoteBook sol = new RoughNoteBook();
-          List<List<Integer>> foursumH = sol.foursumH(nums, target);
+  public static int cuntVovels(String v,String u){
+        int count =0;
+        for(int i=0; i<v.length();i++){
+            for(int j =0; j<u.length();j++){
+                if(v.charAt(i)==u.charAt(j)){
+                    count++;
+                }
+            }
+        }
+    
+    return count;
 
-        System.out.println("answar is :"+foursumH);
     
     }
-  }
+    public static boolean isAnargam(String s1,String s2){
+      boolean isAnar = true;
+      if(s1.length()!=s2.length()){return false;}
+
+      for(int i =0;i<s1.length();i++){
+        int count =0;
+        for(int j =0; j<s1.length();j++){
+          if(s1.charAt(i)!=s2.charAt(j)){
+            count++;
+          }else{
+            System.out.println("..");
+          }
+        }
+        if(count==s1.length()){
+          isAnar =false;
+        }
+      }
+      return isAnar;
+
+    }
+     public static void main(String[] args) {
+      String s1 = "prince";
+      String s2 = "price";
+      System.out.println(isAnargam(s1, s2));
+    
+      
+      
+     }
+    }
+  
   
