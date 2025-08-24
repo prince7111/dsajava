@@ -1,7 +1,5 @@
 package dsajava;
 
-import java.util.*
-
 public class arraysThree {
     // //         public static void nextPermutation (int nums[],int n){
     // //         // 1 2 3 6 5 4
@@ -136,28 +134,63 @@ public class arraysThree {
     //         }
     //     }
     // }
-    public static int cuntVovels(String v,String u){
-        int count =0;
-        for(int i=0; i<v.length();i++){
-            for(int j =0; j<u.length();j++){
-                if(v.charAt(i)==u.charAt(j)){
-                    count++;
+
+
+    public static boolean exist(char[][] board, String word) {
+        // ग्रिड की पंक्तियों (rows) और कॉलम (columns) की संख्या
+        int rows = board.length;
+        int cols = board[0].length;
+
+        // ग्रिड के हर सेल पर लूप चलाएं
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                // अगर शब्द का पहला अक्षर मिल जाता है, तो खोजने की कोशिश करें
+                if (board[i][j] == word.charAt(0)) {
+                    // एक हेल्पर फंक्शन को कॉल करें
+                    if (searchHelper(board, word, i, j, 0)) {
+                        return true; // शब्द मिल गया है
+                    }
                 }
             }
         }
-    
-    return count;
-
+        return false; // पूरा ग्रिड चेक करने के बाद भी शब्द नहीं मिला
     }
-    public static void main(String[] args) {
-      
 
-        String str="ShradhaDidi";
-        String str1="ApnaCollege";
-        String str2="ShradhaDidi";
-        System.out.println(str.equals(str1) +" "+str.equals(str2));
-    
-   
+    // यह फंक्शन रिकर्सिवली (recursively) काम करता है
+    public static boolean searchHelper(char[][] board, String word, int row, int col, int index) {
+        // बेस केस (Base Cases)
+        // 1. अगर पूरा शब्द मिल गया है
+        if (index == word.length()) {
+            return true;
+        }
+
+        // 2. बाउंड्री चेक (Grid Boundaries) और अक्षर का मेल
+        if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || board[row][col] != word.charAt(index)) {
+            return false;
+        }
+
+        // वर्तमान सेल को अस्थायी रूप से बदल दें ताकि हम इसे दोबारा न गिनें
+        char temp = board[row][col];
+        board[row][col] = '#';
+
+        // चारों दिशाओं में आगे बढ़ें
+        boolean found = searchHelper(board, word, row + 1, col, index + 1) || // नीचे
+                      searchHelper(board, word, row - 1, col, index + 1) || // ऊपर
+                      searchHelper(board, word, row, col + 1, index + 1) || // दाएं
+                      searchHelper(board, word, row, col - 1, index + 1);    // बाएं
+
+        // सेल को वापस उसकी मूल स्थिति में ले आएं
+        board[row][col] = temp;
+
+        return found;
+    }
+
+    public static void main(String[] args) {
+        char board[][]= {{'a','b','c','e'},{'s','f','c','s'},{'a','d','e','e'}};
+        String word = "abcced";
+        System.out.println(exist(board,word));
+        
+      
 
     }
 }

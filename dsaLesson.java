@@ -127,17 +127,19 @@ public class dsaLesson {
         }
         if(count==s1.length()){
           isAnar =false;
-        }
+         }
       }
       return isAnar;
 
     }
     public static void main(String args[]){
-              String s1 = "race";
-      String s2 = "care";
+              String s1 = "aab";
+      String s2 = "aba";
       System.out.println(isAnargam(s1, s2));
     
-      
+   /*apple"
+
+s2 = "aplee */
 
       
        
