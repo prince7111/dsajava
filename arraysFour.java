@@ -56,6 +56,20 @@ public class arraysFour {
         }
         return false;
     }
+    public static boolean searchMatrixOptimal(int[][] matrix, int target) {
+    int row = matrix.length-1,col =0;
+    while(row>=0 && col<=matrix[0].length-1){
+        if(matrix[row][col]==target){
+            return true;
+        }else if(matrix[row][col]> target){
+            row--;
+        }else{
+            col++;
+        }
+        
+    }
+    return false;
+    }
 
     public static void main(String[] args) {//August
         //Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
@@ -67,6 +81,7 @@ public class arraysFour {
         int target =5;
 
         System.out.println(searchMatrix(matrix, target));
+        System.out.println(searchMatrixOptimal(matrix, target));
       
       
 
