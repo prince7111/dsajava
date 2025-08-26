@@ -1,4 +1,5 @@
 package dsajava;
+import java.util.*;
 public class arraysFour {
     public static int subArraySumEqalsK(int nums[],int k){
         int tct =0;
@@ -29,6 +30,22 @@ public class arraysFour {
         }
         return duplicate;
     }
+    public static int findDuplicat(int nums[]){
+        Set<Integer> set = new HashSet<>();
+        for(int i =0;i<nums.length;i++){
+            int nb =nums[i];
+          
+          if(set.contains(nb)){
+            return nb;
+          }
+            set.add(nb);
+          
+        
+        }
+        return -1;
+    
+        
+    }
     public static void main(String[] args) {//August
         //Q1 subArry sum eqals K
         //Q2 Find Duplicate
@@ -38,7 +55,7 @@ public class arraysFour {
         // System.out.println("hello world");
         // System.out.println("||java dsa || Arrays 4:");
         int nums[]= {3,3,3,3,3}; 
-        System.err.println(findDuplicate(nums));
+        System.err.println(findDuplicat(nums));
          
       
 

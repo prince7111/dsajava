@@ -132,15 +132,38 @@ public class dsaLesson {
       return isAnar;
 
     }
+    // cjeck anargam
+    public static boolean isANargam(String s1,String s2){
+        boolean ans = true;
+        if(s1.length()!= s2.length()){ 
+            return false;
+        }
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(int i =0;i<s1.length();i++){
+            char box =s1.charAt(i);
+            if(map.containsKey(box)){
+                map.put(box, map.get(box)+1);
+            }else{
+                map.put(box,1);
+            }
+            for(int j =0;j<s2.length();j++){
+                if(!map.containsKey(s2.charAt(j))){
+                    ans =false;
+                }
+            }
+            return true;
+
+            
+        }
+        return ans;
+
+    }
     public static void main(String args[]){
-              String s1 = "aab";
+      String s1 = "aabc";
       String s2 = "aba";
-      System.out.println(isAnargam(s1, s2));
-    
-   /*apple"
-
-s2 = "aplee */
-
+      System.out.println(isANargam(s1, s2));
+     
+  
       
        
         }
