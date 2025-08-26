@@ -158,7 +158,7 @@ public class dsaLesson {
         return ans;
 
     }
-    public static void main(String args[]){
+   public static void main(String args[]){
       String s1 = "aabc";
       String s2 = "aba";
       System.out.println(isANargam(s1, s2));

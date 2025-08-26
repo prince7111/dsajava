@@ -46,17 +46,15 @@ public class arraysFour {
     
         
     }
+
     public static void main(String[] args) {//August
-        //Q1 subArry sum eqals K
-        //Q2 Find Duplicate
-        //Q3 Spiral Matrix
+        //Q1 subArry sum eqals K       %
+        //Q2 Find Duplicate            %
+        //Q3 Spiral Matrix 
         //Q4 Search in Sorted matrix II
         //Q6 Search in Sorted matrix II
-        // System.out.println("hello world");
-        // System.out.println("||java dsa || Arrays 4:");
-        int nums[]= {3,3,3,3,3}; 
-        System.err.println(findDuplicat(nums));
-         
+        System.out.println("Arrays 4 : Q.4 || search in sorted matrix");
+      
       
 
     }
