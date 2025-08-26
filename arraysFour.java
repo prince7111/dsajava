@@ -46,14 +46,27 @@ public class arraysFour {
     
         
     }
+    public static boolean searchMatrix(int matrix[][],int target){
+        for(int i =0;i<matrix.length;i++){
+            for(int j =0;j<matrix[0].length;j++){
+                if(matrix[i][j]==target){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public static void main(String[] args) {//August
-        //Q1 subArry sum eqals K       %
-        //Q2 Find Duplicate            %
-        //Q3 Spiral Matrix 
-        //Q4 Search in Sorted matrix II
-        //Q6 Search in Sorted matrix II
-        System.out.println("Arrays 4 : Q.4 || search in sorted matrix");
+        //Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
+        int matrix[][]= {{1,4,7,11,15},
+                          {2,5,8,12,19},
+                          {3,6,9,16,22},
+                          {10,13,14,17,24},
+                          {18,21,23,26,30}};
+        int target =5;
+
+        System.out.println(searchMatrix(matrix, target));
       
       
 
