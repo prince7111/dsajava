@@ -225,14 +225,21 @@ public class RoughNoteBook{
     }
     public static int countInversion(int arr[]){
       int countOfInvrsion =0;
+     List< List<Integer> >list = new ArrayList<>();
       for(int i =0;i<arr.length;i++){
         for(int j =i+1;j<arr.length;j++){
           if(arr[i]>arr[j]){
+            List<Integer>lis =new ArrayList<>();
+            lis.add(arr[i]);lis.add(arr[j]);
             countOfInvrsion++;
+            list.add(lis);
 
           }
         }
       }
+      System.out.println("counting inversion elements are:");
+      System.out.println(list);
+      System.out.println("Count of inversion:");
       return countOfInvrsion;
     }
      public static void main(String[] args) {
