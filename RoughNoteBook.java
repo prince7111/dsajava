@@ -223,14 +223,25 @@ public class RoughNoteBook{
       return isAnar;
 
     }
-     public static void main(String[] args) {
-      String s1 = "prince";
-      String s2 = "price";
-      System.out.println(isAnargam(s1, s2));
-    
-      
-      
-     }
+    public static int countInversion(int arr[]){
+      int countOfInvrsion =0;
+      for(int i =0;i<arr.length;i++){
+        for(int j =i+1;j<arr.length;j++){
+          if(arr[i]>arr[j]){
+            countOfInvrsion++;
+
+          }
+        }
+      }
+      return countOfInvrsion;
     }
+     public static void main(String[] args) {
+      int arr[] ={2,4,1};
+      System.out.print(countInversion(arr));
+
+       
+     }
+     }
+    
   
   

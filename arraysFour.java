@@ -95,11 +95,43 @@ public static void spiralMatrix(int matrix[][]){
     }            
     
 }
+public static void spiralMatDry(int matrix[][]){
+    int str =0;int endr =matrix.length-1;int endc =matrix[0].length-1;int stc =0;
+    while(str<=endr && stc<=endc){
+        //top boundry
+        for(int j =stc;j<=endc;j++){
+            System.out.print(matrix[str][j]+" ");
+        }
+        for(int i =str+1; i<=endr;i++){
+            System.out.print(matrix[i][endc]+" ");
+        }
+        //BoTtom boundry
+        for(int j =endc-1;j>=stc;j--){
+            System.out.print(matrix[endr][j]+" ");
+            // if(str ==endr){
+            //     break;
+            // }
+        }
+        for(int i =endr-1;i>=str+1;i--){
+            System.out.print(matrix[i][stc]+" ");
+        //       if(stc ==endc){
+        //         break;
+        // }
+       
+    } stc++;
+        str++;
+        endc--;
+        endr--;
+    
+}
+}
     public static void main(String[] args) {
-    int matrix[][]= {{1,2,3}, 
-                     {4,5,6},
-                     {7,8,9}};
-     spiralMatrix(matrix);
+    int matrix[][]= {{1,2,3,1,2}, 
+                     {4,5,6,7,8,},
+                     {7,8,9,3,3,},
+                    { 2,3,6,5,2},
+                     {2,3,4,3,2}};
+      spiralMatDry(matrix);
     }
     
 }
