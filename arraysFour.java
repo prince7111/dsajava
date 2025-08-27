@@ -70,21 +70,36 @@ public class arraysFour {
     }
     return false;
     }
+public static void spiralMatrix(int matrix[][]){
+    int stRow =0;int endRow = matrix.length;
+    int stCol =0;int endCol =matrix[0].length;
+    while(stRow <=endRow && stCol<=endCol){
+        int row =stRow;
+        for(int j =stCol;j<endCol;j++){
+            System.out.print(matrix[row][j]+" ");
+        }
+        int col = endCol-1;
+        for(int i =stRow+1;i<endRow;i++){
+            System.out.print(matrix[i][col]+" ");
 
-    public static void main(String[] args) {//August
-        //Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
-        int matrix[][]= {{1,4,7,11,15},
-                          {2,5,8,12,19},
-                          {3,6,9,16,22},
-                          {10,13,14,17,24},
-                          {18,21,23,26,30}};
-        int target =5;
-
-        System.out.println(searchMatrix(matrix, target));
-        System.out.println(searchMatrixOptimal(matrix, target));
-      
-      
-
+        }
+         row =endRow-1;
+        for(int j =endCol-2;j>=stCol;j--){
+            System.out.print(matrix[row][j]+" ");
+        }
+        col =stCol;
+        for(int i=endRow-2; i >=stRow+1; i--){
+            System.out.print(matrix[i][col]+" ");
+        }
+         stRow++;endRow--;stCol++;endCol--;
+    }            
+    
+}
+    public static void main(String[] args) {
+    int matrix[][]= {{1,2,3}, 
+                     {4,5,6},
+                     {7,8,9}};
+     spiralMatrix(matrix);
     }
     
 }
