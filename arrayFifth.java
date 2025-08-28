@@ -1,15 +1,10 @@
 package dsajava;
+
+import java.util.ArrayList;
+
 //august//array 5 hard level
 public class arrayFifth {
-    public static void main(String args[]){
-        System.out.println("hello world (IV)");
-        System.out.println("Arrays 5 : day 5 : ||Q.1 || Traping rain water || 1st solution||");
-        int h[] = {0,1,0,2,1,0,1,3,2,1,2,1};
-        System.out.println("Traping rain water value in int :");
-        System.out.println(trapedHard(h));
-
-    }
-    public static int trapedHard(int h[] ){
+     public static int trapedHard(int h[] ){
          int water =0;
         int n = h.length;
 //    left maximum bar array
@@ -33,4 +28,24 @@ public class arrayFifth {
         return water; 
     }
     
+    public static void main(String args[]){
+        int arr[] ={1};
+        ArrayList<Integer> list = new ArrayList<>();
+        //3,3,5,5,6,7
+        int idx =0;int k=1;
+        while(k<=arr.length){
+            int largest =0;
+            for(int i =idx;i<k;i++){
+                largest =Math.max(largest, arr[i]);
+            
+
+            }
+            list.add(largest);
+         idx++;k++;
+
+        }
+       
+   System.out.println(list);
+
+    }
 }
