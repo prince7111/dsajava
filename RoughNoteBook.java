@@ -243,12 +243,11 @@ public class RoughNoteBook{
       return countOfInvrsion;
     }
      public static void main(String[] args) {
-      int arr[] ={2,4,1};
-      System.out.print(countInversion(arr));
+    
 
        
      }
-     }
+   }
     
   
   
