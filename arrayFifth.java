@@ -46,26 +46,8 @@ public class arrayFifth {
 
     }
 
-    public static int largestRectangleArea(int[] heights) {// int heights[] = {2,1,5,6,2,3};
-        int largeRA =0;
-        for(int i =0;i<heights.length;i++){
-            int h =heights[i];
-            int w =1;
-           int curRA =h*w;
-            largeRA = Math.max(largeRA,curRA);
-             //
-             while(i>0){
-              int  h2 = Math.min(heights[i],heights[i-1]);
-              int  w2 =2;
-              int  curRA2= h2*w2;
-                  
-                   largeRA = Math.max(largeRA,curRA2);
-                   i--;w++;
-             }
-        }
-        return largeRA;
-        
-    }
+   
+    
      public static  int reversePairs(int[] nums) {
         int numberOfReversePairs=0;
         for(int i =0;i<nums.length;i++){
@@ -77,10 +59,30 @@ public class arrayFifth {
         }
     return numberOfReversePairs;  
     }
+     public static int largestRectangleArea(int[] heights) {// int heights[] = {2,1,5,6,2,3};
+        int largeRA =0;
+        for(int i =0;i<heights.length;i++){
+            int h =heights[i];
+            int w =1;
+           int curRA =h*w;
+            largeRA = Math.max(largeRA,curRA);
+             //
+             int j =i;
+             while(j>0){
+              int  h2 = Math.min(heights[j],heights[j-1]);
+              int  w2 =2;
+              int  curRA2= h2*w2;
+                  
+                   largeRA = Math.max(largeRA,curRA2);
+                   j--;w++;
+             }
+        }
+        return largeRA;
+        
+    }
     public static void main(String args[]){
-        int nums[] = {1,3,2,3,1};
-        System.out.println(reversePairs(nums));
-    
+     int heights[] = {2,1,5,6,2,3};
+     System.out.println(largestRectangleArea(heights));
 
     }
 }
