@@ -2,7 +2,6 @@ package dsajava;
 
 import java.util.ArrayList;
 
-//august//array 5 hard level
 public class arrayFifth {
      public static int trapedHard(int h[] ){
          int water =0;
@@ -27,12 +26,10 @@ public class arrayFifth {
 
         return water; 
     }
-    
-    public static void main(String args[]){
-        int arr[] ={1};
-        ArrayList<Integer> list = new ArrayList<>();
+    public static void  slidingWindowMaxiMum(int arr[]){
+    ArrayList<Integer> list = new ArrayList<>();  
         //3,3,5,5,6,7
-        int idx =0;int k=1;
+        int idx =0;int k=3;
         while(k<=arr.length){
             int largest =0;
             for(int i =idx;i<k;i++){
@@ -44,8 +41,46 @@ public class arrayFifth {
          idx++;k++;
 
         }
-       
-   System.out.println(list);
+       System.out.print(list);
+   
+
+    }
+
+    public static int largestRectangleArea(int[] heights) {// int heights[] = {2,1,5,6,2,3};
+        int largeRA =0;
+        for(int i =0;i<heights.length;i++){
+            int h =heights[i];
+            int w =1;
+           int curRA =h*w;
+            largeRA = Math.max(largeRA,curRA);
+             //
+             while(i>0){
+              int  h2 = Math.min(heights[i],heights[i-1]);
+              int  w2 =2;
+              int  curRA2= h2*w2;
+                  
+                   largeRA = Math.max(largeRA,curRA2);
+                   i--;w++;
+             }
+        }
+        return largeRA;
+        
+    }
+     public static  int reversePairs(int[] nums) {
+        int numberOfReversePairs=0;
+        for(int i =0;i<nums.length;i++){
+            for(int j = i+1;j<nums.length;j++){
+                if(nums[i]> 2*nums[j]){
+                    numberOfReversePairs++;
+                }
+            }
+        }
+    return numberOfReversePairs;  
+    }
+    public static void main(String args[]){
+        int nums[] = {1,3,2,3,1};
+        System.out.println(reversePairs(nums));
+    
 
     }
 }
