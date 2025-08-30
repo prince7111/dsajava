@@ -80,9 +80,61 @@ public class arrayFifth {
         return largeRA;
         
     }
+    public static void findMisingAndRepetedValues(int grid[][]){
+        int rep =-1;
+        int missing =0;
+        int n =grid.length;
+        int idx =0;
+        int gridNew[] = new int [n*n];
+        
+        //2d to 1d array
+        for(int i =0;i<n;i++){
+            for(int j =0;j<grid[0].length;j++){
+                gridNew[idx] = grid[i][j];
+                idx++;
+                if(i>n){
+                    break;
+                }
+
+            }
+        }
+            // for(int s =0;s<gridNew.length;s++){
+            //     System.out.print(gridNew[s]+",");
+            // }
+            // System.out.println();
+            //find repeted
+            for(int k =0;k<gridNew.length;k++){
+                for(int l =k+1;l<gridNew.length;l++){
+                    if(gridNew[k]==gridNew[l]){
+                        rep =gridNew[l];
+                        System.out.println("our rep. no is:"+ rep);
+                    }
+                    
+                }
+            
+            }
+            //mising
+            for(int m =1;m<=n*n;m++){
+                for(int x =0;x<gridNew.length;x++){
+                    if(m==gridNew[x]){
+                    break;
+
+                }else{
+                    missing =m;
+                    System.out.println("missing ="+missing);
+                }
+            }
+
+        }
+    
+    }
+    
+
     public static void main(String args[]){
-     int heights[] = {2,1,5,6,2,3};
-     System.out.println(largestRectangleArea(heights));
+        int grid[][] = {{1,3},{2,2}};
+        findMisingAndRepetedValues(grid);
+
+
 
     }
 }
