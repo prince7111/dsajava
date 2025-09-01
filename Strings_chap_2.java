@@ -11,10 +11,32 @@ public class Strings_chap_2 {
         return false;
 
     }
+    public static double   findSortPath(String Q2){
+        float x =0f;
+        float y =0f;
+        for(int i=0;i<Q2.length();i++){
+            char dir= Q2.charAt(i);
+            if(dir=='E'){
+                x++;
+            }else if(dir=='N'){
+                y++;
+    
+            }else if(dir=='w'){
+                x--;
+            }else{
+                y--;
+            }
+        }
+        float x_Suare=x*x;
+        float y_Suare =y*y;
+        double ans =Math.sqrt(x_Suare + y_Suare);
+        return ans;
+    }
     public static void main(String args[]){
         System.out.println("Strings in Java dsa || chapete 2,Q.1 || is palindrome");
-        String str ="madaM";
-        System.out.println(isPalindrome(str));
+        String  Q2 = "WNEENESENNN";
+        System.out.println(findSortPath(Q2));
+
 
     }
     
