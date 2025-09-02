@@ -90,10 +90,27 @@ System.out.print(sb.toString());
         return count;
 
     }
+    public static boolean isAnargam(String s1,String s2){
+        char count[]= new char[286];
+        if(s1.length()!=s2.length()){
+            return false;
+        }
+        for(int i=0;i<s1.length();i++){
+            count[s1.charAt(i)]++;
+            count[s2.charAt(i)]--;
+            
+        }
+       for(int i=0;i<s1.length();i++){
+        if(count[i]!=0){
+            return false;
+        }
+       }
+        return true;
+    }
     public static void main(String args[]){
-        String str ="aeiou";
-        System.err.println(countVovles(str));
-        countVovles(str);
+       String s1="race";
+       String s2 ="care";
+       System.err.println(isAnargam(s1, s2));
 
        
     
