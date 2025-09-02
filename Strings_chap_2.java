@@ -77,9 +77,24 @@ System.out.print(sb.toString());
         }
         return st;
     }
+    //String assignmnet Questions
+    public static int countVovles(String str){
+        int count=0;
+        for(int i=0;i<str.length();i++){
+            
+            if(str.charAt(i)=='a'||str.charAt(i)=='e'||str.charAt(i)=='i'|| str.charAt(i)=='o'|| str.charAt(i)=='u'){
+                count++;
+
+            }
+        }
+        return count;
+
+    }
     public static void main(String args[]){
-       String str= "aaabbcccdd";
-       System.out.println(compressTring(str));
+        String str ="aeiou";
+        System.err.println(countVovles(str));
+        countVovles(str);
+
        
     
     }
