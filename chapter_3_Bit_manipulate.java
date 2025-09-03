@@ -48,7 +48,7 @@ public class chapter_3_Bit_manipulate {
             System.out.println("Odd");
         }
         }
-        
+        //OPERATION 1
     public static void checkIthBIt(int n,int i){
         int bitmask =1<<i;
         if((n & bitmask)!=0){
@@ -58,14 +58,19 @@ public class chapter_3_Bit_manipulate {
             System.err.println("the "+i+"th bit of "+n+"=0");
         }
     }
-    
+       //OPERATION 2
     public static int setIthBit(int n,int i){
         int bitmask=1<<i;
         return n|bitmask;
 
     }
+    public static int clearIthBit(int n,int i){
+        int bitmask=1<<i;
+        return n & (~bitmask);
+    }
     public static void main(String args[]){
-    System.out.println(setIthBit(10, 2));
+     System.out.println(clearIthBit(8, 2));
+     System.out.println(clearIthBit(6,2));
 
     }
     
