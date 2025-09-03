@@ -39,9 +39,29 @@ public class chapter_3_Bit_manipulate {
         }
 
     }
+    public static void oddOrEven(int n){
+        int bitmask=1<<0;
+        if((n & bitmask)==0){
+                System.out.println("even");
+
+        }else{
+            System.out.println("Odd");
+        }
+        }
+        
+    public static void checkIthBIt(int n,int i){
+        int bitmask =1<<i;
+        if((n & bitmask)!=0){
+            System.err.println("the "+i+"th bit of "+n+"=1");
+
+        }else{
+            System.err.println("the "+i+"th bit of "+n+"=0");
+        }
+    }
+    
 
     public static void main(String args[]){
-        checkOddOrEven(2);
+        checkIthBIt(0,3 );
         
         
 
