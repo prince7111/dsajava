@@ -59,13 +59,13 @@ public class chapter_3_Bit_manipulate {
         }
     }
     
+    public static int setIthBit(int n,int i){
+        int bitmask=1<<i;
+        return n|bitmask;
 
+    }
     public static void main(String args[]){
-        checkIthBIt(0,3 );
-        
-        
-
-     
+    System.out.println(setIthBit(10, 2));
 
     }
     
