@@ -14,11 +14,17 @@ public class chapter_3_Bit_manipulate {
         //3) XOR
         System.out.print("5 ^ 6 = ");
         System.out.println(5 ^ 6); //  (3)10
+
         //BInary ones compliment
         System.out.println("BInary ones complement ");
         System.out.println("~5 ="+~5);
         //~n =-() || ones complement
         //~-n()+1 ||2's complement
+        System.out.println(~0); // ==-1 aayega na ki 1
+        System.out.println("binary left shift <<<<< ");
+        System.out.println(5<<2);//20
+        System.out.println("Binary right shift >>>>..>>");
+        System.out.println(6>>2);//1
 
     }
     
