@@ -80,8 +80,12 @@ public class chapter_3_Bit_manipulate {
         }
         return updateNumber;
      }
+     public static int clearLastIBit(int n,int i){
+        int bitmask=(~1)<<i;
+        return n & bitmask;
+     }
     public static void main(String args[]){
-     System.err.println(updateIthBIt(15, 0, 9));
+     System.out.println(clearLastIBit(15, 2));
 
     }
     
