@@ -109,8 +109,11 @@ public class chapter_3_Bit_manipulate {
         }
         return ans;
      }
+     public static boolean checkPowOfTwo(int n){
+        return (n &(n-1))==0;
+     }
     public static void main(String args[]){
-     System.out.println(fastExp(3,5));
+     System.out.print(checkPowOfTwo(4));
 
 
     }
