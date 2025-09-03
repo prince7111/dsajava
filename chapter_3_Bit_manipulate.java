@@ -27,10 +27,22 @@ public class chapter_3_Bit_manipulate {
         System.out.println(6>>2);//1
 
     }
-    
+    //Q1 chack if a number is odd or even
+    public static void checkOddOrEven(int n){
+        int ans =n&1;
+        if(ans ==1){
+            System.out.println(n+" is odd");
+            
+        }else{
+            System.out.println(n+" is even");
+        
+        }
+
+    }
 
     public static void main(String args[]){
-        operators_operations(0,0);
+        checkOddOrEven(2);
+        
         
 
      
