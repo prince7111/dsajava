@@ -81,11 +81,25 @@ public class chapter_3_Bit_manipulate {
         return updateNumber;
      }
      public static int clearLastIBit(int n,int i){
-        int bitmask=(~1)<<i;
+        int bitmask=(~0)<<i;
         return n & bitmask;
      }
+     //count set bit in a number 
+     public static int countSetBIt(int n){
+        int count=0;
+        while(n>0){
+            int lastDigi=n%2;
+            if(lastDigi==1){
+                count++;
+                
+            }
+            n=n/2;
+        }
+        return count;
+     }
     public static void main(String args[]){
-     System.out.println(clearLastIBit(15, 2));
+     System.out.print(countSetBIt(10));
+
 
     }
     
