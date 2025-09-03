@@ -68,9 +68,20 @@ public class chapter_3_Bit_manipulate {
         int bitmask=1<<i;
         return n & (~bitmask);
     }
+    //update ith bit 
+     public static int updateIthBIt(int n,int i,int operation){
+        int updateNumber=-1;
+        if(operation==0){
+          updateNumber=  clearIthBit(n, i);
+        }else if(operation==1){{
+            updateNumber=setIthBit(n, i);
+        }
+    
+        }
+        return updateNumber;
+     }
     public static void main(String args[]){
-     System.out.println(clearIthBit(8, 2));
-     System.out.println(clearIthBit(6,2));
+     System.err.println(updateIthBIt(15, 0, 9));
 
     }
     
