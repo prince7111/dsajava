@@ -1,119 +1,120 @@
                                             // ||CHAPETER 3 : bit Maninpulation||  \\\ 
  package dsajava;
 public class chapter_3_Bit_manipulate {
-    public static void operators_operations(int a,int b){ 
-     System.out.println("Hello World");//java dsa ||chapeter 3 || BIT MANIPULATION || #(pRINCE MEEENA)
+    // public static void operators_operations(int a,int b){ 
+    //  System.out.println("Hello World");//java dsa ||chapeter 3 || BIT MANIPULATION || #(pRINCE MEEENA)
 
-           //operators 
-        //1)AND &
-        System.out.print("5 & 6 =");
-        System.out.println(5 & 6);//  (4)10
-        //2)OR |
-        System.out.print("5 | 6 = ");
-        System.out.println(5 | 6); // (7)10
-        //3) XOR
-        System.out.print("5 ^ 6 = ");
-        System.out.println(5 ^ 6); //  (3)10
+    //        //operators 
+    //     //1)AND &
+    //     System.out.print("5 & 6 =");
+    //     System.out.println(5 & 6);//  (4)10
+    //     //2)OR |
+    //     System.out.print("5 | 6 = ");
+    //     System.out.println(5 | 6); // (7)10
+    //     //3) XOR
+    //     System.out.print("5 ^ 6 = ");
+    //     System.out.println(5 ^ 6); //  (3)10
 
-        //BInary ones compliment
-        System.out.println("BInary ones complement ");
-        System.out.println("~5 ="+~5);
-        //~n =-() || ones complement
-        //~-n()+1 ||2's complement
-        System.out.println(~0); // ==-1 aayega na ki 1
-        System.out.println("binary left shift <<<<< ");
-        System.out.println(5<<2);//20
-        System.out.println("Binary right shift >>>>..>>");
-        System.out.println(6>>2);//1
+    //     //BInary ones compliment
+    //     System.out.println("BInary ones complement ");
+    //     System.out.println("~5 ="+~5);
+    //     //~n =-() || ones complement
+    //     //~-n()+1 ||2's complement
+    //     System.out.println(~0); // ==-1 aayega na ki 1
+    //     System.out.println("binary left shift <<<<< ");
+    //     System.out.println(5<<2);//20
+    //     System.out.println("Binary right shift >>>>..>>");
+    //     System.out.println(6>>2);//1
 
-    }
-    //Q1 chack if a number is odd or even
-    public static void checkOddOrEven(int n){
-        int ans =n&1;
-        if(ans ==1){
-            System.out.println(n+" is odd");
+    // }
+    // //Q1 chack if a number is odd or even
+    // public static void checkOddOrEven(int n){
+    //     int ans =n&1;
+    //     if(ans ==1){
+    //         System.out.println(n+" is odd");
             
-        }else{
-            System.out.println(n+" is even");
+    //     }else{
+    //         System.out.println(n+" is even");
         
-        }
+    //     }
 
-    }
-    public static void oddOrEven(int n){
-        int bitmask=1<<0;
-        if((n & bitmask)==0){
-                System.out.println("even");
+    // }
+    // public static void oddOrEven(int n){
+    //     int bitmask=1<<0;
+    //     if((n & bitmask)==0){
+    //             System.out.println("even");
 
-        }else{
-            System.out.println("Odd");
-        }
-        }
-        //OPERATION 1
-    public static void checkIthBIt(int n,int i){
-        int bitmask =1<<i;
-        if((n & bitmask)!=0){
-            System.err.println("the "+i+"th bit of "+n+"=1");
+    //     }else{
+    //         System.out.println("Odd");
+    //     }
+    //     }
+    //     //OPERATION 1
+    // public static void checkIthBIt(int n,int i){
+    //     int bitmask =1<<i;
+    //     if((n & bitmask)!=0){
+    //         System.err.println("the "+i+"th bit of "+n+"=1");
 
-        }else{
-            System.err.println("the "+i+"th bit of "+n+"=0");
-        }
-    }
-       //OPERATION 2
-    public static int setIthBit(int n,int i){
-        int bitmask=1<<i;
-        return n|bitmask;
+    //     }else{
+    //         System.err.println("the "+i+"th bit of "+n+"=0");
+    //     }
+    // }
+    //    //OPERATION 2
+    // public static int setIthBit(int n,int i){
+    //     int bitmask=1<<i;
+    //     return n|bitmask;
 
-    }
-    public static int clearIthBit(int n,int i){
-        int bitmask=1<<i;
-        return n & (~bitmask);
-    }
-    //update ith bit 
-     public static int updateIthBIt(int n,int i,int operation){
-        int updateNumber=-1;
-        if(operation==0){
-          updateNumber=  clearIthBit(n, i);
-        }else if(operation==1){{
-            updateNumber=setIthBit(n, i);
-        }
+    // }
+    // public static int clearIthBit(int n,int i){
+    //     int bitmask=1<<i;
+    //     return n & (~bitmask);
+    // }
+    // //update ith bit 
+    //  public static int updateIthBIt(int n,int i,int operation){
+    //     int updateNumber=-1;
+    //     if(operation==0){
+    //       updateNumber=  clearIthBit(n, i);
+    //     }else if(operation==1){{
+    //         updateNumber=setIthBit(n, i);
+    //     }
     
-        }
-        return updateNumber;
-     }
-     public static int clearLastIBit(int n,int i){
-        int bitmask=(~0)<<i;
-        return n & bitmask;
-     }
-     //count set bit in a number 
-     public static int countSetBIt(int n){
-        int count=0;
-        while(n>0){
-            int lastDigi=n%2;
-            if(lastDigi==1){
-                count++;
+    //     }
+    //     return updateNumber;
+    //  }
+    //  public static int clearLastIBit(int n,int i){
+    //     int bitmask=(~0)<<i;
+    //     return n & bitmask;
+    //  }
+    //  //count set bit in a number 
+    //  public static int countSetBIt(int n){
+    //     int count=0;
+    //     while(n>0){
+    //         int lastDigi=n%2;
+    //         if(lastDigi==1){
+    //             count++;
                 
-            }
-            n=n/2;
-        }
-        return count;
-     }
-     public static int fastExp(int a,int n){
-        int ans =1;
-        while(n>0){
-       if((n&1)==1){
-            ans=ans*a;
-        }
-         a=a*a;
-        n=n>>1;
+    //         }
+    //         n=n/2;
+    //     }
+    //     return count;
+    //  }
+    //  public static int fastExp(int a,int n){
+    //     int ans =1;
+    //     while(n>0){
+    //    if((n&1)==1){
+    //         ans=ans*a;
+    //     }
+    //      a=a*a;
+    //     n=n>>1;
 
-        }
-        return ans;
-     }
-     public static boolean checkPowOfTwo(int n){
-        return (n &(n-1))==0;
-     }
+    //     }
+    //     return ans;
+    //  }
+    //  public static boolean checkPowOfTwo(int n){
+    //     return (n &(n-1))==0;
+    //  }
     public static void main(String args[]){
-     System.out.print(checkPowOfTwo(4));
+        System.out.println("Hello World");
+     
 
 
     }
