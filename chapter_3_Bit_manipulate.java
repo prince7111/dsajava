@@ -114,8 +114,12 @@ public class chapter_3_Bit_manipulate {
     //  }
     public static void main(String args[]){
         System.out.println("Hello World");
-     
-
+        int x=1;
+        int y=2;
+        int temp=x;
+        x=(x&0)|y;
+        y=(y&0)|temp;
+       
 
     }
     
