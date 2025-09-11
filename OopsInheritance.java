@@ -1,61 +1,56 @@
 package dsajava;
-//inheritance
-public class OopsInheritance {
+public class OopsInheritance{
     public static void main(String args[]){
-        // Fish shark = new Fish();
-        // shark.color = "gray";
-        // System.out.println(shark.color);
-        // shark.eat();
-        // shark.breathe();
-        // shark.fins = 4;
-        // System.out.println(shark.fins);
-        Dog dobby = new Dog();
-        dobby.breed = "desi dog";
-        System.out.println(dobby.breed);
-        dobby.color = "yelloWhite";
-        System.out.println(dobby.color);
-        dobby.legs = 4;
-        System.out.println("legs: "+dobby.legs);
-        dobby.eat();dobby.breath();
+        System.out.println("Hybrid Inheritance");
 
 
-
-
-    }  
+    }
 }
-class Animal{
+class Animal{  //Parent class 1
     String color;
     void eat(){
-        System.out.println("eats");
+        System.out.println("eat");
     }
     void breath(){
         System.out.println("breath");
     }
 }
-class Mammals extends Animal{
-    int legs;
+class Fish extends Animal{ // 1.1 child class (animal>fish)
+    void swim(){
+        System.out.println("Swim in Water");
+    }
+}
+class Bird extends Animal{ //1.2 childe class (animal >Bird)
+        void fly(){
+            System.out.println("fly in sky");
+    }
+}
+class Mammal extends Animal{//1.3 child class (anima>mamml)
+    void walk(){
+        System.out.println("Walks");
 
+    }
 }
-class Dog extends Mammals{
-    String breed;
+// /////////////
+class Tuna extends Fish{ //1.1.1 tuna<fish<animal
+    String ability;
 }
-   ////single level inheritance
-// class Animal{ // Base class
-//     String color;
-//     void eat(){
-//         System.out.println("eats");
-//     }
-//     void breathe(){
-//         System.out.println("breathe");
+class Shark extends Fish{ //1.1.2 shark<fish<animal
+    String ability;
+}
+class Peacock extends Bird{//1.2.1 peacock<Bird<Animal
+      boolean vage;
+}
+//
+class Dog extends Mammal{//1.3.1 Dog<Mammal<Animal
+    boolean tail;
+}
+class Cat extends Mammal { // 1.3.2 Cat < Mammal < Animal
+    boolean tail;
+
     
-//     }
-// }
-// class Fish extends Animal { 
-//     int fins;
-//     void swim(){
-//         System.out.println("swim in Water");
-//     }
+}
+class Human extends Mammal{ // 1.3.2 Human <Mammal<Aniamal
+    boolean tail;
+}
 
-
-// }
-// // Single lebele inherii tance 
