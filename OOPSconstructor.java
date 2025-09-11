@@ -2,9 +2,10 @@ package dsajava;
 public class OOPSconstructor {
     public static void main(String args[]){
     Student s1 = new Student();//OBJECT
-    s1.name = "prince";
+    s1.name = "Girdhar";
     s1.roll = 456;
-    s1.password = "@abc"; //
+    s1.password = "@abc"; 
+// marks array
     s1.marks[0] = 100;
     s1.marks[1] = 99;
     s1.marks[2] = 80;  //
@@ -21,15 +22,22 @@ class Student{          //stud class BLUEPrint
     int roll;
     String password;
     int marks[];
-    Student(){//
-        marks = new int[3];
-        System.out.println("Constructor is calling...");
-    }
-    Student(Student s1){       
+// Shallo copy constuctor functoion
+    // Student(Student s1){       
+    //     this.name = s1.name;
+    //     this.roll = s1.roll;
+    //     marks = new int[3];
+    //     this.marks = s1.marks;
+    // }
+    Student(Student s1){
         this.name = s1.name;
         this.roll = s1.roll;
         marks = new int[3];
-        this.marks = s1.marks;
+        // this.marks = s1.marks;
+        for(int i=0;i<marks.length;i++){
+           this.marks[i]=s1.marks[i];
+        }
+
     }
     Student(int roll){
         this.roll = roll;
@@ -38,6 +46,10 @@ class Student{          //stud class BLUEPrint
     Student (String name){
         this.name = name;
            marks = new int [3];
+    }
+    Student(){
+        System.out.println("Constructor is calling ...");
+        marks = new int [3];
     }
    
 
