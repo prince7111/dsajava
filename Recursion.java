@@ -28,9 +28,20 @@ public class Recursion {
     int fn = n * fnm1;
     return fn;
 }
+public static int fibonacci(int n){
+    if(n ==1 || n ==0){
+        return n;
+    }
+    int fnm1 = fibonacci(n-1);
+    int fnm2 = fibonacci(n-2);
+    int FN = fnm1 + fnm2;
+    return FN;
+
+}
     public static void main(String[] args) {
         int n =5;
-        System.out.println(fact(n));
+        System.out.println(fibonacci(n));
+  
        
         
         
