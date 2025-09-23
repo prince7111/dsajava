@@ -57,10 +57,25 @@ public static int firstOccurance(int arr[],int k,int i){
     return firstOccurance(arr ,k,i+1);
 
 }
+public static int lastOccurance(int arr[],int k,int i){
+    if(i== arr.length){
+        return -1;
+    }
+    int isFound = lastOccurance(arr, k, i+1);
+    if(isFound != -1){
+        return isFound;
+    }
+    if(arr[i]==k){
+        return i;
+    }
+    return isFound;
+}
+
+
     public static void main(String[] args) {
        int arr[] = {1,2,3,4,5,6,7,5};
-       int k;
-       System.out.println(firstOccurance(arr,5,0));
+       System.out.println(lastOccurance(arr, 5, 0));
+
 
 
        
