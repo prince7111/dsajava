@@ -13,10 +13,24 @@ public class Recursion2 {
         int totalWay = fnm1 + fnm2;
         return totalWay;
     }
+    public static void removeDuplicates(String str,int idx, StringBuilder sb,boolean map []){
+        if(idx == str.length()){
+            System.out.println(sb);
+            return ;
+        }
+        char currchar = str.charAt(idx);
+        if(map[currchar - 'a']== true){
+            removeDuplicates(str, idx+1, sb, map);
+        }else{
+            map[currchar - 'a'] = true; 
+
+            removeDuplicates(str, idx+1, sb.append(currchar), map);//unique ko add kar lo
+        }
+
+    }
     public static void main(String args[]){
-        System.out.println("Recursion part two jai ho 2!");
-        int n =3;
-        System.out.println(tillingProblem(n));
+        String str = "appnacollege";
+        removeDuplicates(str, 0,new StringBuilder(""), new boolean [26]);
     }
     
 }
