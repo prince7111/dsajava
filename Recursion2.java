@@ -28,9 +28,21 @@ public class Recursion2 {
         }
 
     }
+    public static int fPairing(int n){
+        if(n == 1 || n == 2){
+            return n;
+        }
+        int fnm1 =fPairing(n-1);
+        int fnm2 = fPairing(n-2);
+        int totalPairWay = n-1 * (fnm2);
+        int totalPairs = fnm1 + totalPairWay;
+        return totalPairs;
+        
+    }
     public static void main(String args[]){
-        String str = "appnacollege";
-        removeDuplicates(str, 0,new StringBuilder(""), new boolean [26]);
+        int n =3;
+        System.out.println(fPairing(n));
+      
     }
     
 }
