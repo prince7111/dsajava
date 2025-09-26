@@ -52,12 +52,21 @@ public class Recursion2 {
       
 
     }
+    public static int  strLength(String str , int i , int length){
+        if(i == str.length()){
+            return length;
+        }
+        if(str.charAt(i) != 32){
+            length = length+1;
+
+        }
+        return strLength(str, i+1, length);
+    }
     public static void main(String args[]){
-        String str = "";
-      
-       int arr [] = {3,2,4,5,6,2,7,2};
-       int key =2;
-       allOcc(arr, key, 0, str);
+        
+        String str ="prince";
+        System.out.println(strLength(str, 0, 0));
+    
      
 
       
