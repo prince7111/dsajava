@@ -62,13 +62,46 @@ public class Recursion2 {
         }
         return strLength(str, i+1, length);
     }
-    public static void main(String args[]){
-        
-        String str ="prince";
-        System.out.println(strLength(str, 0, 0));
-    
-     
+    public static int countOfSpecialString(String str){
+        int count =0;
+        for(int i=0; i<str.length();i++){
+            String curSubStr = "";
+            for(int j =i; j<str.length(); j++){
+                curSubStr +=  str.charAt(j);
+                if(curSubStr.length()==1){
+                    count++;
+                }else if(curSubStr.charAt(0) == curSubStr.charAt(curSubStr.length()-1)){
+                    count++;
 
+                }
+                
+            }
+        }
+        return count;
+
+    }
+  public static int counSubString(String str, int i, int j, int n){
+    if(n == 1){
+        return 1;
+    }
+    if(n == 0){
+        return 0;
+    }
+    int res = counSubString(str, i+1, j, n-1) +
+               counSubString(str, i, j-1, n-1) -
+                counSubString(str, i+1, j-1, n-2);
+    if(str.charAt(i)== str.charAt(j)){
+        res++;
+    }
+    return res;
+
+  }
+    
+    public static void main(String args[]){
+        String str = "abcab"; // 4
+        int n = str.length();
+        System.out.println(counSubString(str, 0, 4, n));
+        
       
     }
     
