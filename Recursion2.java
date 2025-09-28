@@ -96,13 +96,20 @@ public class Recursion2 {
     return res;
 
   }
-    
-    public static void main(String args[]){
-        String str = "abcab"; // 4
-        int n = str.length();
-        System.out.println(counSubString(str, 0, 4, n));
-        
-      
+    public static void towerOfhanoi(int n ,String source ,String helper, String destination){
+        if(n ==1){
+            System.out.println(("transfer dis "+n + " from "+source+ " to "+destination));
+            return;
+        }
+        towerOfhanoi(n-1, source, destination, helper);
+        System.out.println("transfer disk "+n+" frome "+ source +" to "+ destination);
+        towerOfhanoi(n-1, helper, source, destination);
     }
+
+    public static void main(String args[]){
+        int n =2;
+        towerOfhanoi(n, "source", "helper", "destination");
+ 
+   }
     
 }
