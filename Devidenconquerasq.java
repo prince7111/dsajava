@@ -35,18 +35,34 @@ public class Devidenconquerasq {
 
             }
             
-
-            
         }
     }
+    public static int majority(int arr[],int i,int maj){
+        if(i==arr.length){
+            return maj;
+        }
+         maj  =arr[0];
+        int count =1;
+        if(maj ==arr[i]){
+                count++;
+            }else if(count ==0){
+                maj = arr[i];count =1;
+            }else {
+                count--;
+            }
+           return  majority(arr, i+1,maj);
+
+        
+    }
     public static void main(String args[]){
-        String arr[] = {"sun","earth","mars","mercury"};
-        mergeSort(arr, 0, arr.length-1);
-        for(int i =0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+        int arr[] = {};// 2
+        int majorityEls = majority(arr, 0, -1);
+        System.out.println(majorityEls);
+        
+        
         }
        
 
     }
     
-}
+
