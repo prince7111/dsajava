@@ -54,10 +54,17 @@ public class Devidenconquerasq {
 
         
     }
+    public static void inversionCount(int arr[],int i,int j){
+        if(i==arr.length ){
+            return;
+        }
+
+    }
+    
     public static void main(String args[]){
-        int arr[] = {};// 2
-        int majorityEls = majority(arr, 0, -1);
-        System.out.println(majorityEls);
+        int arr[] = {2, 4, 1, 3, 5};//3
+        
+        
         
         
         }
