@@ -120,10 +120,18 @@ public class revizion44{
                   }
                   return res;
     }
+    public static void towerOfHanoi(int n,String source,String helper ,String dest){
+        if(n==1){
+            System.out.println("transfer disk "+n+" from"+source+" to "+dest);
+            return;
+        }
+        towerOfHanoi(n-1, source, dest, helper);
+        System.out.println("transfer disk "+n+" from"+source+" to "+ dest);
+        towerOfHanoi(n-1, helper, source, dest);
+    }
     public static void main(String args[]){
-        String str = "abcab";
-        int n = str.length();
-        System.out.println( countSubstring(str, 0, n-1,n ));
+       int n=3;
+       towerOfHanoi(n, "|s|", "|H|","|D|");
       
       
     }
