@@ -1,40 +1,35 @@
 public class runcod {
-    public static void printFunction(int arr[]){
-        for(int i =0;i<arr.length;i++){
-            System.err.print(arr[i]+" ");
-        }
+  public static int search(int arr[],int si,int ei,int tar){
+    if(si>ei){
+        return -1;
     }
-    public static void quickSort(int arr[], int si, int ei){
-        //base case
-        if(si>=ei){
-            return;
-        }
-        int pidx = partition(arr,si,ei);
-        quickSort(arr, si, pidx-1);
-        quickSort(arr, pidx+1, ei);
+    int mid = (si+ei)/2;
+    if(arr[mid]==tar){
+        return mid;
     }
-    public static int partition(int arr[],int si,int ei){
-        int pivot = arr[ei];
-        int i = si-1;
-        for(int j=si; j<ei;j++){
-            if(arr[j]<=pivot){
-                i++;//swap
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+    //line 1:
+    if(arr[si]<arr[mid]){
+        //case a
+        if(arr[si]<= tar && tar <= arr[mid]){
+           return search(arr, si, mid-1, tar);
+        }else{
+           return  search(arr, mid+1, ei, tar);
+        }
+    }else{
+        //line 2:
+        if(arr[mid]<=tar && tar <= arr[ei]){
+           return search(arr, mid+1, ei, tar);
+        }else{
+           return  search(arr, si, mid-1, tar);
+        }
 
-            }
-        }i++;
-        int temp = pivot;
-        arr[ei] = arr[i];
-        arr[i] = temp;
-        return i;
     }
+  }
     public static void main(String args[]){
-        //Quick Sort
-        int arr[] = {6,3,9,8,2,5};
-        quickSort(arr,0,arr.length-1);
-        printFunction(arr);
+        int arr[]= {4,5,6,7,0,1,2};
+        int tar = 0;
+        System.out.println(search(arr, 0,arr.length-1, 5));
+
 
 
 
