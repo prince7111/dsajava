@@ -31,10 +31,23 @@ public class Backtracking {
         //choice no
         findSubSet(s, ans, i+1);
     }
+    //find permutation
+    public static void findPer(String str,String ans){
+        if(str.length()==0){
+            System.out.println(ans);
+            return;
+        }
+        for(int i =0;i<str.length();i++){
+            char curr = str.charAt(i);
+           String Nstr = str.substring(0,i)+
+                          str.substring(i+1);
+           findPer(Nstr, ans+curr);   
+        }
+    }
     public static void main(String args[]){
-        System.out.println("Hello world,coding 4 Nov,2025");
-        System.out.println("Backtracking");
-       String s = "abc";
-       findSubSet(s,"",0);
+       String str = "abc";
+       
+       findPer(str, "");
+ 
     }
 }
