@@ -18,13 +18,23 @@ public class Backtracking {
         for(int i=0; i<arr.length; i++){
             System.out.print(arr[i]+" ");
         }
-        System.err.println();
+        System.err.println(88);
+    }
+    //Backtracking : Q2 -findSubset
+    public static void findSubSet(String s,String ans,int i){
+        if(i == s.length()){
+            System.err.print(ans+",");
+            return;
+        }
+        //choice yes
+        findSubSet(s, ans+ s.charAt(i), i+1);
+        //choice no
+        findSubSet(s, ans, i+1);
     }
     public static void main(String args[]){
         System.out.println("Hello world,coding 4 Nov,2025");
         System.out.println("Backtracking");
-        int arr[] = new int[10];
-        changeArr(arr, 0,1);
-        printArr(arr);
+       String s = "abc";
+       findSubSet(s,"",0);
     }
 }
