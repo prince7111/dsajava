@@ -32,9 +32,37 @@ public class arreaylist {
        mainlist.add(list3);
        System.out.println(mainlist);
    }
+   public static int stroreWater(ArrayList<Integer>list){
+    int maxWater =0;
+    int st =0;int end = list.size()-1;
+    while(st<end){
+        int hight = Math.min(list.get(st), list.get(end));
+        int width = end -st;
+        int curWater = hight* width;
+        maxWater = Math.max(maxWater,curWater);
+        if(list.get(end)>list.get(st)){
+            st++;
+        }else{
+            end--;
+        }
+    }
+    return maxWater;
+   }
     public static void main(String[] args) {
-       ArrayList<List<Integer>> mainlist = new ArrayList<>();
-       twoDArrList(mainlist);
+       //container with most Water(2 pointer apoach)
+       ArrayList<Integer> list = new ArrayList<>();
+       list.add(1);
+       list.add(8);
+       list.add(6);
+       list.add(2);
+       list.add(5);
+       list.add(4);
+       list.add(8);
+       list.add(3);
+       list.add(7);
+       System.out.println(  stroreWater(list));
+     
+
      
        
     
