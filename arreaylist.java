@@ -1,5 +1,6 @@
 package dsajava;
 import java.util.*;
+import javax.print.attribute.standard.PrinterLocation;
 public class arreaylist {
    public static void rEverseArrList(ArrayList<Integer>list){
     for(int i=list.size()-1;i>=0;i--){
@@ -16,14 +17,26 @@ public class arreaylist {
        }
        return max;
    }
+   public static void twoDArrList( ArrayList<List<Integer>> mainlist){
+         ArrayList<Integer> list1 = new ArrayList<>();
+       ArrayList <Integer> list2 = new ArrayList<>();
+       ArrayList <Integer> list3 = new ArrayList<>();
+       for(int i =1;i<=5;i++){
+        list1.add(i*1);
+        list2.add(i*2);
+        list3.add(i*3);
+       }
+      
+       mainlist.add(list1);
+       mainlist.add(list2);
+       mainlist.add(list3);
+       System.out.println(mainlist);
+   }
     public static void main(String[] args) {
-        ArrayList <Integer> list = new ArrayList<>();
-       list.add(2);
-       list.add(5);
-       list.add(9);
-       list.add(3);
-       list.add(6);
-       System.out.println(findMax(list));
+       ArrayList<List<Integer>> mainlist = new ArrayList<>();
+       twoDArrList(mainlist);
+     
+       
     
      
 
