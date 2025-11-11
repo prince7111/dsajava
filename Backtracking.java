@@ -91,15 +91,20 @@ public class Backtracking {
             System.out.println();
         }
     }
-    public static void main(String args[]){
-     int n =4;
-     char board[][] = new char [n][n];
-     for(int i =0;i<board.length;i++){
-        for(int j =0;j<board[0].length;j++){
-            board[i][j] = 'X';
+    public static int gWays(int i,int j,int n,int m){
+        if(i == n-1 && j == m-1){
+            return 1;
+        }else if(i==n || j==m){
+            return 0;
         }
-     }
-     nQueens(board, 0);
+        int w1 = gWays(i+1, j, n, m);
+        int w2 = gWays(i,j+1,n,m);
+        return w1 + w2;
+    }
+    public static void main(String args[]){
+    int n =4;int m =4;
+    System.err.println(gWays(0,0,n,m));
+     
  
     }
 }
