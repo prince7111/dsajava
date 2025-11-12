@@ -1,7 +1,7 @@
 package dsajava;
 import java.util.*;
 import javax.print.attribute.standard.PrinterLocation;
-public class arreaylist {
+public class Arreaylist {
    public static void rEverseArrList(ArrayList<Integer>list){
     for(int i=list.size()-1;i>=0;i--){
         System.out.print(list.get(i)+" ");
@@ -66,20 +66,29 @@ public class arreaylist {
     return false;
     
    }
+   public static boolean isMonotonic (ArrayList<Integer> list){
+     for(int i =0;i<list.size()-1;i++){
+        for(int j =i;j<list.size()-1;j++){
+            if(list.get(i)<list.get(j) && list.get(i+1)>list.get(j+1)){                
+                return false;
+            }else if(list.get(i+1)>list.get(j) && list.get(i+1)<list.get(j+1)){
+                return false;
+            }       
+        }        
+    }
+    System.err.println("True");
+    System.err.println("The list is monotonic");
+    return true;
+   }
     public static void main(String[] args) {
        //container with most Water(2 pointer apoach)
-       ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-          list.add(2);
-            list.add(3);
-              list.add(4);
-                list.add(5);
-                  list.add(6);
-                    list.add(7);
-        int target = 5;
-        System.out.println(pairSum(list, target));
-
-
+     ArrayList<Integer>list = new ArrayList<>();
+     list.add(1);
+     list.add(2);
+     list.add(4);
+     list.add(5);
+     isMonotonic(list);
+    
      
 
      
