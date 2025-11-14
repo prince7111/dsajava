@@ -1,61 +1,37 @@
 package dsajava;
+
+import java.util.ArrayList;
 public class runcod {
-    public static boolean  isSafe(char board[][],int row,int col) {
-        //verticaly up chek
-        for(int i = row-1; i>=0;i--){
-            if(board[i][col]=='Q'){
-                return false;
+public static void printLonlynum(ArrayList<Integer>list ){
+    for(int i =0; i<list.size();i++){
+        int currI = list.get(i);
+        boolean isLonely = true;       
+        for(int j = 0;j<list.size();j++){
+            if(i!=j){  
+                 int currJ = list.get(j);
+            if(currI == currJ){
+                isLonely = false;
+                break;
+            }else if(currI == (currJ)-1){
+                isLonely = false;
+                break;
+            }else if(currI == (currJ)+1){
+                isLonely = false;
+                break;
             }
+           }
         }
-        //diag lef up
-        for(int i=row-1,j=col-1;i>=0 && j>=0;i--,j--){
-            if(board[i][j]=='Q'){
-                return false;
-            }
+           if(isLonely == true){
+            System.out.println(list.get(i));    
         }
-        //diag right up
-        for(int i=row-1,j=col+1;i>=0 && j<board.length;i--,j++){
-            if(board[i][j]=='Q'){
-                return false;
-            }
-        }
-        return true;
-    }
-public static  void nQueens(char board[][],int row){
-    //Base case
-    if(row == board.length){
-        printBoard(board);
-        return;
-    }
-    for(int j =0;j<board.length;j++){
-        if(isSafe(board,row,j)){
-            board[row][j] = 'Q';
-            nQueens(board, row+1);
-            board[row][j] = '.';
-
-        }
-    }
-
-}
-public static void printBoard(char board[][]){
-    System.err.println("-------------");
-    for(int i =0;i<board.length;i++){
-        for(int j =0;j<board.length;j++){
-            System.err.print(board[i][j]+" ");
-        }
-        System.err.println("");
     }
 }
     public static void main(String args[]){
-        //Backtrraking nQueens
-        int n =4;
-        char board[][] = new char[n][n];
-        for(int i =0;i<board.length;i++){
-            for(int j=0;j<board.length;j++){
-                board[i][j] ='.';
-            }
-            System.err.println();
-        }       
-        nQueens(board,0);
-    } 
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(10);list.add(6);list.add(5);list.add(8);
+        printLonlynum(list);
+      
+       
+
+    }
 }

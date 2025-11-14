@@ -80,14 +80,16 @@ public class Arreaylist {
     System.err.println("The list is monotonic");
     return true;
    }
+
     public static void main(String[] args) {
        //container with most Water(2 pointer apoach)
      ArrayList<Integer>list = new ArrayList<>();
-     list.add(1);
-     list.add(2);
-     list.add(4);
+     list.add(10);
+     list.add(6);
      list.add(5);
-     isMonotonic(list);
+     list.add(8);
+     findLonNums(list);
+   
     
      
 
