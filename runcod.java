@@ -1,6 +1,7 @@
 package dsajava;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 public class runcod {
 public static void printLonlynum(ArrayList<Integer>list ){
     for(int i =0; i<list.size();i++){
@@ -26,10 +27,33 @@ public static void printLonlynum(ArrayList<Integer>list ){
         }
     }
 }
+public static int mostFreqNumber(ArrayList<Integer>list,int key){
+    HashMap<Integer,Integer> map = new HashMap<>();
+    for(int i=0;i<list.size()-1;i++){
+        if(list.get(i)==key){
+            int cT = list.get(i+1);
+            map.put(cT,map.getOrDefault(cT, 0)+1);
+        }
+    }
+    int maxCount =0;int mostFreqNumber=-1;
+    for(HashMap.Entry<Integer,Integer>entry : map.entrySet()){
+        if(entry.getValue()>maxCount){
+            maxCount = entry.getValue();
+            mostFreqNumber = entry.getKey();
+        }
+    }
+return mostFreqNumber;
+}
     public static void main(String args[]){
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(10);list.add(6);list.add(5);list.add(8);
-        printLonlynum(list);
+    ArrayList<Integer> list = new ArrayList<>();
+    list.add(1);
+    list.add(100);
+    list.add(200);
+    list.add(1);
+    list.add(100);
+    System.out.println(mostFreqNumber(list, 1));
+
+      
       
        
 
