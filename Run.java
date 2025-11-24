@@ -129,6 +129,31 @@ public class Run{
         prev.next = prev.next.next;
         return;
     }
+    public static int rmNth(int n){
+        if(head == null){
+            System.out.println("LL is empty");
+            return Integer.MAX_VALUE;
+        } 
+        //sze
+        int sze = 0;
+        Node t = head;
+        while(t != null){
+            t = t.next;
+            sze++;
+        }
+        if(n == size){
+            int deleteNodeVal = head.data;
+            head = head.next;
+            return deleteNodeVal;
+        }
+        Node temp = head;
+        for(int i=0;i< (sze-n)-1 ; i++){
+            temp = temp.next;
+        }
+        int deleteNodeVal = temp.next.data;
+        temp.next = temp.next.next;
+        return deleteNodeVal;
+    }
     public static void main(String args[]){
         Run ll = new Run();
             ll.addFirst(1);
@@ -138,8 +163,10 @@ public class Run{
             ll.addLast(5);
             ll.addLast(6);
             ll.print();
-      deletNthFromEnd(3);
-      ll.print();
+            System.err.println("bol jayi babba ki" + rmNth(3)); //5);
+
+           ll.print();
+      
 
        
     
