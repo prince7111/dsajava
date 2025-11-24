@@ -1,3 +1,5 @@
+
+
 public class Run{
     //CLASS LINKED LSIT
     public static class Node{ //CLASS NODE
@@ -83,7 +85,7 @@ public class Run{
         }
          System.out.println("null");
     }
-    public static int serachKey(int key){
+    public static int itrSearch(int key){
         Node temp = head;
         int pos =0;
         while(temp != null){
@@ -95,14 +97,29 @@ public class Run{
         }    
         return -1;
     }
+    public static  int helper(Node temp,int i,int key){
+        if(temp == null){
+            return -1;
+        }
+        if(temp.data ==key){
+            return i;
+        }
+        int idx= helper(temp.next, i+1, key);
+        return idx;
+    }
+    public static int recSearch(int key){
+        return helper(head,0,key);
+
+    }
     public static void main(String args[]){
         Run ll = new Run();
        ll.addFirst(2);
        ll.addFirst(1);
        ll.addLast(3);
        ll.addLast(4);
-       ll.print();
-       System.out.print(  serachKey(4));
+       ll.addLast(5);
+       System.out.println(recSearch(4));
+
        
     
     
