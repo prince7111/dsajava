@@ -97,18 +97,21 @@ public class Run{
         }    
         return -1;
     }
-    public static  int helper(Node temp,int i,int key){
+    public static  int helper(Node temp,int key){
         if(temp == null){
             return -1;
         }
         if(temp.data ==key){
-            return i;
+            return 0;
         }
-        int idx= helper(temp.next, i+1, key);
-        return idx;
+        int idx= helper(temp.next, key);
+        if(idx == -1){
+            return -1;
+        }
+        return idx+1;
     }
     public static int recSearch(int key){
-        return helper(head,0,key);
+        return helper(head,5);
 
     }
     public static void main(String args[]){
