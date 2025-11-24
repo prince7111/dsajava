@@ -114,14 +114,32 @@ public class Run{
         return helper(head,5);
 
     }
+    public static void deletNthFromEnd(int n){
+        int sz =0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+        System.out.println(sz);
+        Node prev = head;
+        for(int i=0;i<(sz-n)-1;i++){
+            prev = prev.next;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
     public static void main(String args[]){
         Run ll = new Run();
-       ll.addFirst(2);
-       ll.addFirst(1);
-       ll.addLast(3);
-       ll.addLast(4);
-       ll.addLast(5);
-       System.out.println(recSearch(4));
+            ll.addFirst(1);
+            ll.addLast(2);
+            ll.addLast(3);
+            ll.addLast(4);
+            ll.addLast(5);
+            ll.addLast(6);
+            ll.print();
+      deletNthFromEnd(3);
+      ll.print();
 
        
     
