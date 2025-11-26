@@ -1,4 +1,5 @@
 package dsajava;
+import com.sun.net.httpserver.Authenticator;
 import java.util.*;
 public class LinkedListClass2 {
     //Q.1 check Loop/Cyle lin.list
@@ -20,31 +21,75 @@ public class LinkedListClass2 {
         tail.next = newNode;
         tail = newNode;
     }
-   public static  boolean isCycle(){
-    Node current = head;
-    while(current != null){ //outerloop
-        Node runner = head;
-        while(runner != current){ // inner loop
-            if(runner == current.next){
+//    public static  boolean isCycle(){
+//     Node current = head;
+//     while(current != null){ //outerloop
+//         Node runner = head;
+//         while(runner != current){ // inner loop
+//             if(runner == current.next){
+//                 return true;
+//             }
+//             runner = runner.next;
+
+//         }
+//         current = current.next;
+
+//     }
+//     return false;
+//    }
+    public static boolean isCycle(){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
                 return true;
             }
-            runner = runner.next;
-
         }
-        current = current.next;
+        return false;
+    }
+    public static void removeCycle(){
+        Node slow =head;
+        Node fast = head;
+        boolean iscycle = false;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                iscycle = true;
+                break;
+            }
+        }
+        if(iscycle == false){
+            System.out.println("ll is not Cycle");
+             return;
+        }
+        slow = head;
+        Node prev = null;
+        while(slow != fast){
+            prev = fast;
+            fast = fast.next;//+1
+            slow = slow.next;//+1
+        }
+        prev.next = null;
+
 
     }
-    return false;
-   }
     public static void main(String[] args) {
           head = new Node(1);
+          
           head.next = new Node(2);
           head.next.next = new Node(3);
-          head.next.next.next = new Node(4);
+          Node temp = new Node(4);
+          head.next.next.next = temp;
           head.next.next.next.next = new Node(5);
-          head.next.next.next.next.next = head;
+          head.next.next.next.next.next = temp;
+         System.err.println(isCycle());
+          removeCycle();
+         System.err.println(isCycle());
+
    
-          System.out.println(isCycle());
     }
     
 }
