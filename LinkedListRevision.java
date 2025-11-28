@@ -1,5 +1,8 @@
 package dsajava;
 
+import javax.management.relation.RelationTypeSupport;
+
+                 //LInked list Part 1
 public class LinkedListRevision {
     public static class Node{
         int data;
@@ -58,10 +61,16 @@ public class LinkedListRevision {
         return removedVal;
     }
  
-   public int removeLast(){
+   public int removeLast(int data){
     if(head ==  null){
         System.out.println("ll is empty");
         return Integer.MIN_VALUE;
+    }else if(size ==1){
+        int removedVal = head.data;
+        head = tail = null;
+        size = 0;
+        return removedVal;
+        
     }
     Node temp = head;
     while(temp.next.next!= null){
@@ -69,11 +78,13 @@ public class LinkedListRevision {
     }
     int removedVal = temp.next.data;
     temp.next = null;
-    return removedVal;
+    size--;
+   return removedVal;
 
    }
    public void add(int idx,int val){
      Node newNode = new Node(val);
+     size++;
     if(head == null){
         addFirst(val);
     }
@@ -99,14 +110,37 @@ public class LinkedListRevision {
     }
     return -1;
    }
+   public static int helper(Node temp,int key){
+    //BaseCase
+    if(temp == null){
+        return -1;
+    }
+    if(temp.data == key){
+        return 0;
+    }
+    int idx = helper(temp.next, key);
+    if(idx == -1){
+        return -1;
+    }
+    return idx+1;
+   }
+   public int recSearch(int key){
+    return helper(head,key);
+   }
     public static void main(String args[]){
         LinkedListRevision ll = new LinkedListRevision();
         ll.addFirst(1);
         ll.addLast(2);
         ll.addLast(3);
-       ll.add(2, 4);
-       System.err.println("the key is at position in ll is = "+ll.itrSearch(4));
-       ll.print();
+        ll.addLast(4);
+        ll.print();
+       int key = 5;
+       System.err.println(key +" recSearch idx:"+ll.recSearch(key));
+        ll.print();
+        
+       
+    
+       
         
 
     }
