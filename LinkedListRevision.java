@@ -61,7 +61,7 @@ public class LinkedListRevision {
         return removedVal;
     }
  
-   public int removeLast(int data){
+   public int removeLast(){
     if(head ==  null){
         System.out.println("ll is empty");
         return Integer.MIN_VALUE;
@@ -127,16 +127,33 @@ public class LinkedListRevision {
    public int recSearch(int key){
     return helper(head,key);
    }
+   public static void reverseLL(){
+    Node prev = null;
+    Node curr = head;
+    Node next;
+    while(curr != null){
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    head = prev;
+   }
     public static void main(String args[]){
         LinkedListRevision ll = new LinkedListRevision();
         ll.addFirst(1);
         ll.addLast(2);
         ll.addLast(3);
-        ll.addLast(4);
+        ll.addLast(4);//1--2--3--4--null
+        ll.addLast(5);//1-->2-->3-->4-->5-->null
         ll.print();
-       int key = 5;
-       System.err.println(key +" recSearch idx:"+ll.recSearch(key));
-        ll.print();
+        System.err.println("size of LL :"+size);
+        ll.reverseLL();
+         ll.print();
+        System.err.println("size of LL :"+size);
+
+
+    
         
        
     
