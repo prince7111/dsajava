@@ -35,7 +35,7 @@ public class LinkedListRevision {
         tail = newNode;
     }
     //print function()
-    public void print(){
+    public static void print(){
         if(head == null){
             System.err.println("ll is empty");
         }
@@ -194,13 +194,33 @@ public class LinkedListRevision {
     }  
     return true;
   }
- 
+  public static boolean isCycle(Node head){
+    Node slow = head;
+    Node fast = head;
+    while(fast != null && fast.next != null){
+         slow = slow.next;
+        fast = fast.next.next;
+        if(fast == slow){
+            return true;
+        }
+    }
+    return false;
+  }
+    //Linked List Revision Part (II)two
+    //11|28|2025
     public static void main(String args[]){
-       LinkedListRevision ll = new LinkedListRevision();
-       ll.addFirst(1);
-       ll.addLast(2);
-       ll.addLast(1);
-       System.out.println(ll.checkPalindrome());
+      Node head = new Node(1);
+     
+      Node temp = new Node (2);
+      head.next = temp;
+      temp.next = new Node(3);
+      head.next.next.next = new Node(4);
+      head.next.next.next.next = new Node(5);
+      head.next.next.next.next.next = temp;
+      
+      System.out.println(isCycle(head));
+      
+      
       
 
       
