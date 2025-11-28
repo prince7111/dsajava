@@ -1,8 +1,5 @@
 package dsajava;
-
-import javax.management.relation.RelationTypeSupport;
-
-                 //LInked list Part 1
+                                //LInked list Part 1
 public class LinkedListRevision {
     public static class Node{
         int data;
@@ -138,19 +135,81 @@ public class LinkedListRevision {
         curr = next;
     }
     head = prev;
+}  
+   public static int sizell(){
+    Node temp = head;
+    int i=1;
+    while(temp != null){
+        temp = temp.next;
+        i++;
+    }
+    int size =i;
+    return size;
    }
+   public static int findnRemoveNthNode(int n){
+    int idx = size-n;
+    Node temp = head;
+    int i=1;
+    while(i<idx){
+        temp = temp.next;
+        i++;
+    }
+    int val = temp.next.data;
+    temp.next = temp.next.next;
+    return val;
+    
+   }
+  public static Node findMid(Node head){
+    Node slow = head;
+    Node fast = head;
+    while(fast != null && fast.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;
+  }
+  public static boolean checkPalindrome(){
+    
+    if(head == null || head.next ==null){
+        return true;
+    }
+    Node midNode = findMid(head);
+    Node prev = null;
+    Node curr =midNode;
+    Node next;
+    while(curr != null){
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    Node right = prev;
+    Node left  = head;
+    while(right != null){
+     if(left.data != right.data){
+       return false;
+     }
+     left = left.next;
+     right = right.next;
+    }  
+    return true;
+  }
+ 
     public static void main(String args[]){
-        LinkedListRevision ll = new LinkedListRevision();
-        ll.addFirst(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(4);//1--2--3--4--null
-        ll.addLast(5);//1-->2-->3-->4-->5-->null
-        ll.print();
-        System.err.println("size of LL :"+size);
-        ll.reverseLL();
-         ll.print();
-        System.err.println("size of LL :"+size);
+       LinkedListRevision ll = new LinkedListRevision();
+       ll.addFirst(1);
+       ll.addLast(2);
+       ll.addLast(1);
+       System.out.println(ll.checkPalindrome());
+      
+
+      
+       
+        
+        
+ 
+    
+
 
 
     
