@@ -3,20 +3,18 @@ import java.util.Stack;
 //import java.util.*;
 public class Stack_Part2{
     public static boolean isValidPar(String str){
-        Stack<Character> s = new Stack<>();
-        for(int i=0;i<str.length();i++){
+        Stack <Character> s = new Stack<>();
+        for(int i= 0; i<str.length(); i++){
             char ch = str.charAt(i);
-            //Opening brackets
-            if(ch =='(' || ch == '[' || ch=='{'){
+            if(ch =='(' || ch == '[' || ch =='{'){
                 s.push(ch);
             }else{
-                //Closing brackets
                 if(s.isEmpty()){
                     return false;
                 }
-                if(((s.peek() =='(')&& ch ==')')  || 
-                   ((s.peek() =='{')&& ch =='}') || 
-                   ((s.peek() =='[')&& ch ==']')){
+                if((ch ==')'&& s.peek()=='(')
+                 ||(ch==']'&& s.peek()=='[') 
+                  || (ch=='}'&& s.peek()=='{')){
                     s.pop();
 
                 }else{
@@ -29,9 +27,9 @@ public class Stack_Part2{
         }else{
             return false;
         }
-    }
+    }   
     public static void main(String args[]){
-        String str = "()[()]";
+        String str = "{}";
         System.out.println( isValidPar(str));
         
         
