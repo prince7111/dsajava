@@ -1,37 +1,50 @@
-//import java.util.*;
 package dsajava;
 import java.util.*;
-public class Stack_Part2_assignmentQuestions {
-   
-    public static boolean isPalindrome(LinkedList<Character> ll){
-        Stack <Character> s = new Stack<>();
-        for(int i=0;i<ll.size();i++){
-             s.push(ll.get(i));
-            
+
+public class Stack_Part2_assignmentQuestions{
+    public static class Node{
+        Node next;
+        char data;
+        Node(char d){
+            this.data = d;
+            this.next = null;
         }
-        for(int i=0;i<ll.size();i++){
-            if(ll.get(i)!= s.peek()){
-                return false;
+    }
+    static boolean ispalindrome(Node head){
+        Node slow = head;
+        boolean ispalin = true;
+        Stack<Character> s = new Stack<>();
+        while(slow != null){
+            s.push(slow.data);
+            slow = slow.next;
+        }
+        while(head != null){
+            int i = s.pop();
+            if(head.data == i ){
+                ispalin = true;
             }else{
-                s.pop();
+                ispalin = false;
+                break;
             }
+            head = head.next;
         }
-        return true;
+        return ispalin;
     }
     public static void main(String args[]){
-        LinkedList<Character> ll = new LinkedList<>();
-        ll.add('A');
-        ll.add('B');
-        ll.add('C');
-        ll.add('B');
-        ll.add('A');
-       
-        System.err.println(isPalindrome(ll));
-      
+        Node one = new Node('A');
+        Node two = new Node('B');
+        Node three = new Node('C');
+        Node four = new Node('B');
+        Node five = new Node('A');
+        one.next =two;
+        two.next = three;
+        three.next = four;
+        four.next =five;
+        boolean Condition = ispalindrome(one);
+        System.err.println("palindrome:"+Condition);
 
-       
-        
+
     }
-
-    
 }
+    
+
