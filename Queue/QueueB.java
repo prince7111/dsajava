@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class QueueB{                   //Princemeena (Main class)
     //array based normal queue
     // static class Queue{
@@ -172,9 +172,57 @@ public class QueueB{                   //Princemeena (Main class)
     //     return s1.peek();
     //   }
     // }
+    //Queue using two stack part -II
+    static class Queue{
+        static Stack<Integer> s1 = new Stack<>();
+        static Stack<Integer> s2 = new Stack<>();
+        public void Enque(int data){
+            
+            s1.push(data);
+        }
+        public static boolean isEmpt(){
+            return s1.isEmpty() && s2.isEmpty();
+        }
+        public static int remove(){
+            if(isEmpt()){
+                System.out.println("Queue is empty");
+                return -1;
+            }
+            if(s2.isEmpty()){
+            while(!s1.isEmpty()){
+                s2.push(s1.pop());
+            }
+        }
+            return s2.pop();
+        }
+        public static int peek(){
+            if(isEmpt()){
+                System.out.println("Queue is empty");
+                return -1;
+            }
+            if(s2.isEmpty()){
+                 while(!s1.isEmpty()){
+                s2.push(s1.pop());
+            }
+
+            }
+        
+            return s2.peek();
+        }
+    }
     
     public static void main(String args[]){
-      
-     
+        Queue q = new Queue();
+        q.Enque(1);
+        q.Enque(2);
+        q.Enque(3);
+        System.out.println(q.remove());
+        q.Enque(4);
+        System.out.println(q.remove());
+        q.Enque(5);
+        while(!q.isEmpt()){
+            System.out.println(q.peek());
+            q.remove();
+        }
     }
 }
