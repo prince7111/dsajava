@@ -1,5 +1,6 @@
 import java.util.Queue;
-public class QueueB{
+import java.util.LinkedList;
+public class QueueB{                   //Princemeena (Main class)
     //array based normal queue
     // static class Queue{
     //     static int arr[];
@@ -42,7 +43,7 @@ public class QueueB{
     //         return arr[0];
     //     }
     // }
-    //circular Queue
+    //circular Queue           Prince Meena (cicular queue)
     // static class Queue{
     //    static  int arr[];
     //    static  int capacity;
@@ -95,64 +96,57 @@ public class QueueB{
     //        return arr[front];
     //     }
     // }
-    static class Node{
-        int data;
-        Node next;
-        public Node(int data){
-            this.data = data;
-            this.next = null;
-        }
-    }
-        public static Node head;
-        public static Node tail;
-        //Empty
-        public static  boolean isEmpty(){
-            return head ==null;
-        }
-        //add
-        public static void add(int data){
-            Node newNode = new Node(data);
-            if(head == null){
-                head = tail = newNode;
-                return;
-            }
-            tail.next =newNode;
-            tail =newNode;
-        }
-        public static  int remove(){
-            if(isEmpty()){
-                System.err.println("Queue(ll) empty");
-                return Integer.MIN_VALUE;
-            }
-            int val = head.data;
-            head = head.next;
-            return val;
-        }
-        public static  int peek(){
-            if(isEmpty()){
-                System.out.println("Queue(ll) empty");
-                return Integer.MAX_VALUE;
-            }
-            return head.data;
-        }
+   ////QUEUE USING LINKEDLIST              Prince Meena 
+    // static class Node{
+    //     int data;
+    //     Node next;
+    //     public Node(int data){
+    //         this.data = data;
+    //         this.next = null;
+    //     }
+    // }
+    //     public static Node head;
+    //     public static Node tail;
+    //     //Empty
+    //     public static  boolean isEmpty(){
+    //         return head ==null;
+    //     }
+    //     //add
+    //     public static void add(int data){
+    //         Node newNode = new Node(data);
+    //         if(head == null){
+    //             head = tail = newNode;
+    //             return;
+    //         }
+    //         tail.next =newNode;
+    //         tail =newNode;
+    //     }
+    //     public static  int remove(){
+    //         if(isEmpty()){
+    //             System.err.println("Queue(ll) empty");
+    //             return Integer.MIN_VALUE;
+    //         }
+    //         int val = head.data;
+    //         head = head.next;
+    //         return val;
+    //     }
+    //     public static  int peek(){
+    //         if(isEmpty()){
+    //             System.out.println("Queue(ll) empty");
+    //             return Integer.MAX_VALUE;
+    //         }
+    //         return head.data;
+    //     }
     
     public static void main(String args[]){
-       QueueB q = new QueueB();
+      // QueueB q = new QueueB();
+      Queue<Integer> q = new LinkedList<>();
        q.add(1);
        q.add(2);
        q.add(3);
-       System.out.println(q.remove());
-       q.add(4);
-       System.err.println(q.remove());
-       q.add(5);
-       while(!isEmpty()){
+       while(!q.isEmpty()){
         System.err.println(q.peek());
         q.remove();
        }
-       
-     
-
-       
-
     }
 }
