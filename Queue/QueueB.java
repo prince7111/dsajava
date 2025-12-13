@@ -1,4 +1,4 @@
-package dsajava.Queue;
+
 public class QueueB{                   //Princemeena (Main class)
     //array based normal queue
     // static class Queue{
