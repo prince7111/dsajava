@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Queue;
+import java.util.LinkedList;
 public class QueueB{                   //Princemeena (Main class)
     //array based normal queue
     // static class Queue{
@@ -172,57 +173,85 @@ public class QueueB{                   //Princemeena (Main class)
     //     return s1.peek();
     //   }
     // }
-    //Queue using two stack part -II
-    static class Queue{
-        static Stack<Integer> s1 = new Stack<>();
-        static Stack<Integer> s2 = new Stack<>();
-        public void Enque(int data){
+  ////Queue using two stack part -II
+    // static class Queue{
+    //     static Stack<Integer> s1 = new Stack<>();
+    //     static Stack<Integer> s2 = new Stack<>();
+    //     public void Enque(int data){
             
-            s1.push(data);
-        }
-        public static boolean isEmpt(){
-            return s1.isEmpty() && s2.isEmpty();
-        }
-        public static int remove(){
-            if(isEmpt()){
-                System.out.println("Queue is empty");
-                return -1;
-            }
-            if(s2.isEmpty()){
-            while(!s1.isEmpty()){
-                s2.push(s1.pop());
-            }
-        }
-            return s2.pop();
-        }
-        public static int peek(){
-            if(isEmpt()){
-                System.out.println("Queue is empty");
-                return -1;
-            }
-            if(s2.isEmpty()){
-                 while(!s1.isEmpty()){
-                s2.push(s1.pop());
-            }
+    //         s1.push(data);
+    //     }
+    //     public static boolean isEmpt(){
+    //         return s1.isEmpty() && s2.isEmpty();
+    //     }
+    //     public static int remove(){
+    //         if(isEmpt()){
+    //             System.out.println("Queue is empty");
+    //             return -1;
+    //         }
+    //         if(s2.isEmpty()){
+    //         while(!s1.isEmpty()){
+    //             s2.push(s1.pop());
+    //         }
+    //     }
+    //         return s2.pop();
+    //     }
+    //     public static int peek(){
+    //         if(isEmpt()){
+    //             System.out.println("Queue is empty");
+    //             return -1;
+    //         }
+    //         if(s2.isEmpty()){
+    //              while(!s1.isEmpty()){
+    //             s2.push(s1.pop());
+    //         }
 
-            }
+    //         }
         
-            return s2.peek();
+    //         return s2.peek();
+    //     }
+    // }
+    static class Stack{
+        static Queue<Integer> q1 = new LinkedList<>();
+        static Queue<Integer> q2 = new LinkedList<>();
+        
+        public static boolean haKhaali(){
+            return q1.isEmpty() && q2.isEmpty();
+        }
+        //add
+        public static void push(int data){
+            while(!q1.isEmpty()){
+                q2.add(q1.remove());
+            }
+            q1.add(data);
+            while(!q2.isEmpty()){
+                q1.add(q2.remove());
+            }
+        }
+        //remove
+        public static int pop(){
+            if(haKhaali()){
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            return q1.remove();
+        }
+        //peek
+        public static int peek(){
+            if(haKhaali()){
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            return q1.peek();
         }
     }
-    
     public static void main(String args[]){
-        Queue q = new Queue();
-        q.Enque(1);
-        q.Enque(2);
-        q.Enque(3);
-        System.out.println(q.remove());
-        q.Enque(4);
-        System.out.println(q.remove());
-        q.Enque(5);
-        while(!q.isEmpt()){
-            System.out.println(q.peek());
-            q.remove();
+        Stack s = new Stack();
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        while(!s.haKhaali()){
+            System.out.println(s.pop());
         }
     }
 }
