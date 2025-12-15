@@ -1,5 +1,4 @@
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
 public class QueueB{                   //Princemeena (Main class)
     //array based normal queue
     // static class Queue{
@@ -222,53 +221,89 @@ public class QueueB{                   //Princemeena (Main class)
     //     //add
     //     public static void push(int data){
     //         while(!q1.isEmpty()){
-    //             q2.add(q1.remove());
-    //         }
-    //         q1.add(data);
-    //         while(!q2.isEmpty()){
-    //             q1.add(q2.remove());
-    //         }
+    // //             q2.add(q1.remove());
+    // //         }
+    // //         q1.add(data);
+    // //         while(!q2.isEmpty()){
+    // //             q1.add(q2.remove());
+    // //         }
+    // //     }
+    // //     //remove
+    // //     public static int pop(){
+    // //         if(haKhaali()){
+    // //             System.out.println("Stack is empty");
+    // //             return -1;
+    // //         }
+    // //         return q1.remove();
+    // //     }
+    // //     //peek
+    // //     public static int peek(){
+    // //         if(haKhaali()){
+    // //             System.out.println("Stack is empty");
+    // //             return -1;
+    // //         }
+    // //         return q1.peek();
+    // //     }
+    // // }
+    // //Stack using two Queue part 2 (push O(1))
+    //   public static void findNonRep( String str){
+    //     int frec[] = new int[26];
+    //     Queue<Character> q = new LinkedList<>();
+    //     for(int i=0;i<str.length();i++){
+    //       char c = str.charAt(i);
+    //       int idx = c-'a';
+    //       q.add(c);
+    //       frec[idx]++;
+    //       while(!q.isEmpty()&& frec[idx]>1){
+    //         q.remove();
+    //       }
+    //       if(q.isEmpty()){
+    //         System.out.print(-1+" ");
+    //       }else{
+    //         System.out.print(q.peek()+" ");
+    //       }
     //     }
-    //     //remove
-    //     public static int pop(){
-    //         if(haKhaali()){
-    //             System.out.println("Stack is empty");
-    //             return -1;
-    //         }
-    //         return q1.remove();
-    //     }
-    //     //peek
-    //     public static int peek(){
-    //         if(haKhaali()){
-    //             System.out.println("Stack is empty");
-    //             return -1;
-    //         }
-    //         return q1.peek();
-    //     }
-    // }
-    //Stack using two Queue part 2 (push O(1))
-      public static void findNonRep( String str){
-        int frec[] = new int[26];
-        Queue<Character> q = new LinkedList<>();
-        for(int i=0;i<str.length();i++){
-          char c = str.charAt(i);
-          int idx = c-'a';
-          q.add(c);
-          frec[idx]++;
-          while(!q.isEmpty()&& frec[idx]>1){
-            q.remove();
-          }
-          if(q.isEmpty()){
-            System.out.print(-1+" ");
-          }else{
-            System.out.print(q.peek()+" ");
-          }
-        }
-        System.out.println();
+    //     System.out.println();
+    //   }
+  
+    public static void interleaveTwoHalves(Queue<Integer> queue){
+      Queue<Integer> q2 = new LinkedList<>();
+        int qSize=0;
+      while(!queue.isEmpty()){
+        q2.add(queue.remove());
+        qSize++;
       }
+      int newArr[] = new int[qSize];//[0,0,0,0......0,0,0]
+      int idx =0;
+      while(!q2.isEmpty()){
+        newArr[idx++] = q2.remove();
+      }
+      idx =0;int mid =qSize/2;
+      while(mid<=qSize-1){
+        queue.add(newArr[idx++]);
+        queue.add(newArr[mid++]);
+      }
+      System.out.println("Output Queue:"+queue);
+
+    }
     public static void main(String args[]){
-      String str = "aabccbx";
-      findNonRep(str);
+      Queue<Integer> q1 = new LinkedList<>();
+      q1.add(1);
+      q1.add(2);
+      q1.add(3);
+      q1.add(4);
+      q1.add(5);
+      q1.add(6);
+      q1.add(7);
+      q1.add(8);
+      q1.add(9);
+      q1.add(10);
+      System.out.println("Input Queue:"+q1);
+      interleaveTwoHalves(q1);
+      
+    
+
+
       
       
     }
