@@ -265,27 +265,39 @@ public class QueueB{                   //Princemeena (Main class)
     //     }
     //     System.out.println();
     //   }
-  
-    public static void interleaveTwoHalves(Queue<Integer> queue){
-      Queue<Integer> q2 = new LinkedList<>();
-        int qSize=0;
-      while(!queue.isEmpty()){
-        q2.add(queue.remove());
-        qSize++;
-      }
-      int newArr[] = new int[qSize];//[0,0,0,0......0,0,0]
-      int idx =0;
-      while(!q2.isEmpty()){
-        newArr[idx++] = q2.remove();
-      }
-      idx =0;int mid =qSize/2;
-      while(mid<=qSize-1){
-        queue.add(newArr[idx++]);
-        queue.add(newArr[mid++]);
-      }
-      System.out.println("Output Queue:"+queue);
+  // //prince {inter leav brute force (prince force 1-level)}
+  //   public static void interleaveTwoHalves(Queue<Integer> queue){
+  //     Queue<Integer> q2 = new LinkedList<>();
+  //       int qSize=0;
+  //     while(!queue.isEmpty()){
+  //       q2.add(queue.remove());
+  //       qSize++;
+  //     }
+  //     int newArr[] = new int[qSize];//[0,0,0,0......0,0,0]
+  //     int idx =0;
+  //     while(!q2.isEmpty()){
+  //       newArr[idx++] = q2.remove();
+  //     }
+  //     idx =0;int mid =qSize/2;
+  //     while(mid<=qSize-1){
+  //       queue.add(newArr[idx++]);
+  //       queue.add(newArr[mid++]);
+  //     }
+  //     System.out.println("Output Queue:"+queue);
 
+  //   }
+  public static void interLeave(Queue<Integer> q1){
+    Queue<Integer> firstHalfQ = new LinkedList<>();
+    int s = q1.size();
+    for(int i=0;i<s/2;i++){
+      firstHalfQ.add(q1.remove());
     }
+    while(!firstHalfQ.isEmpty()){
+      q1.add(firstHalfQ.remove());
+      q1.add(q1.remove());
+    }
+      System.out.println(q1);
+  }
     public static void main(String args[]){
       Queue<Integer> q1 = new LinkedList<>();
       q1.add(1);
@@ -298,8 +310,9 @@ public class QueueB{                   //Princemeena (Main class)
       q1.add(8);
       q1.add(9);
       q1.add(10);
-      System.out.println("Input Queue:"+q1);
-      interleaveTwoHalves(q1);
+      System.out.println(q1);
+      interLeave(q1);
+     
       
     
 
