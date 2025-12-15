@@ -211,47 +211,65 @@ public class QueueB{                   //Princemeena (Main class)
     //         return s2.peek();
     //     }
     // }
-    static class Stack{
-        static Queue<Integer> q1 = new LinkedList<>();
-        static Queue<Integer> q2 = new LinkedList<>();
-        
-        public static boolean haKhaali(){
-            return q1.isEmpty() && q2.isEmpty();
+    // //Stack using two Queue part 1 (push O(1))
+    // static class Stack{
+    //     static Queue<Integer> q1 = new LinkedList<>();
+    //     static Queue<Integer> q2 = new LinkedList<>();
+
+    //     public static boolean haKhaali(){
+    //         return q1.isEmpty() && q2.isEmpty();
+    //     }
+    //     //add
+    //     public static void push(int data){
+    //         while(!q1.isEmpty()){
+    //             q2.add(q1.remove());
+    //         }
+    //         q1.add(data);
+    //         while(!q2.isEmpty()){
+    //             q1.add(q2.remove());
+    //         }
+    //     }
+    //     //remove
+    //     public static int pop(){
+    //         if(haKhaali()){
+    //             System.out.println("Stack is empty");
+    //             return -1;
+    //         }
+    //         return q1.remove();
+    //     }
+    //     //peek
+    //     public static int peek(){
+    //         if(haKhaali()){
+    //             System.out.println("Stack is empty");
+    //             return -1;
+    //         }
+    //         return q1.peek();
+    //     }
+    // }
+    //Stack using two Queue part 2 (push O(1))
+      public static void findNonRep( String str){
+        int frec[] = new int[26];
+        Queue<Character> q = new LinkedList<>();
+        for(int i=0;i<str.length();i++){
+          char c = str.charAt(i);
+          int idx = c-'a';
+          q.add(c);
+          frec[idx]++;
+          while(!q.isEmpty()&& frec[idx]>1){
+            q.remove();
+          }
+          if(q.isEmpty()){
+            System.out.print(-1+" ");
+          }else{
+            System.out.print(q.peek()+" ");
+          }
         }
-        //add
-        public static void push(int data){
-            while(!q1.isEmpty()){
-                q2.add(q1.remove());
-            }
-            q1.add(data);
-            while(!q2.isEmpty()){
-                q1.add(q2.remove());
-            }
-        }
-        //remove
-        public static int pop(){
-            if(haKhaali()){
-                System.out.println("Stack is empty");
-                return -1;
-            }
-            return q1.remove();
-        }
-        //peek
-        public static int peek(){
-            if(haKhaali()){
-                System.out.println("Stack is empty");
-                return -1;
-            }
-            return q1.peek();
-        }
-    }
+        System.out.println();
+      }
     public static void main(String args[]){
-        Stack s = new Stack();
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        while(!s.haKhaali()){
-            System.out.println(s.pop());
-        }
+      String str = "aabccbx";
+      findNonRep(str);
+      
+      
     }
 }
