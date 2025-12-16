@@ -298,13 +298,28 @@ public class QueueB{                   //Princemeena (Main class)
   //   }
   //     System.out.println(q1);
   // }
-    static class Stack{
-      static Deque<Integer> d = new LinkedList<>();
-      public static boolean isEmpt(){
+    // static class Stack{
+    //   static Deque<Integer> d = new LinkedList<>();
+    //   public static boolean isEmpt(){
+    //     return d.isEmpty();
+    //   }
+    //   public void push(int data){
+    //     d.addFirst(data);
+    //   }
+    //   public static int pop(){
+    //     return d.removeFirst();
+    //   }
+    //   public static  int peek(){
+    //     return d.getFirst();
+    //   }
+    // }
+    static class Queueue{
+     static Deque<Integer> d = new LinkedList<>();
+        public static boolean isEmpt(){
         return d.isEmpty();
       }
-      public void push(int data){
-        d.addFirst(data);
+      public void add(int data){
+        d.addLast(data);
       }
       public static int pop(){
         return d.removeFirst();
@@ -312,14 +327,15 @@ public class QueueB{                   //Princemeena (Main class)
       public static  int peek(){
         return d.getFirst();
       }
+      
     }
     public static void main(String args[]){
-      Stack s = new Stack();
-      s.push(1);
-      s.push(2);
-      s.push(3);
-      while(!s.isEmpt()){
-        System.out.println(s.pop());
+      Queueue q = new Queueue();
+      q.add(1);
+      q.add(2);
+      q.add(3);
+      while(!q.isEmpt()){
+        System.out.println(q.pop());
       }
      
      
