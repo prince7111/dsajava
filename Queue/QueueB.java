@@ -286,26 +286,45 @@ public class QueueB{                   //Princemeena (Main class)
   //     System.out.println("Output Queue:"+queue);
 
   //   }
-  public static void interLeave(Queue<Integer> q1){
-    Queue<Integer> firstHalfQ = new LinkedList<>();
-    int s = q1.size();
-    for(int i=0;i<s/2;i++){
-      firstHalfQ.add(q1.remove());
+  // public static void interLeave(Queue<Integer> q1){
+  //   Queue<Integer> firstHalfQ = new LinkedList<>();
+  //   int s = q1.size();
+  //   for(int i=0;i<s/2;i++){
+  //     firstHalfQ.add(q1.remove());
+  //   }
+  //   while(!firstHalfQ.isEmpty()){
+  //     q1.add(firstHalfQ.remove());
+  //     q1.add(q1.remove());
+  //   }
+  //     System.out.println(q1);
+  // }
+    static class Stack{
+      static Deque<Integer> d = new LinkedList<>();
+      public static boolean isEmpt(){
+        return d.isEmpty();
+      }
+      public void push(int data){
+        d.addFirst(data);
+      }
+      public static int pop(){
+        return d.removeFirst();
+      }
+      public static  int peek(){
+        return d.getFirst();
+      }
     }
-    while(!firstHalfQ.isEmpty()){
-      q1.add(firstHalfQ.remove());
-      q1.add(q1.remove());
-    }
-      System.out.println(q1);
-  }
     public static void main(String args[]){
+      Stack s = new Stack();
+      s.push(1);
+      s.push(2);
+      s.push(3);
+      while(!s.isEmpt()){
+        System.out.println(s.pop());
+      }
      
-      Deque<Integer> deque= new LinkedList<>(); 
-      deque.addFirst(1);
-      deque.addFirst(2);
-      System.out.println(deque);
-      deque.removeFirst();
-      System.out.println(deque);
+     
+      
+    
       
      
       
