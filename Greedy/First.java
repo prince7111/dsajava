@@ -5,7 +5,7 @@ package dsajava.Greedy;
 //
 import java.util.ArrayList;
 public class First {
-    public static int maxActSelection(int start[],int end[]){
+    public static void maxActSelection(int start[],int end[]){
         ArrayList<Integer> list = new ArrayList<>();
         int count =0;
         list.add(0);
@@ -18,18 +18,17 @@ public class First {
                 endOfLastSelectedActvity= end[i];
             }
         }
-    
+        System.out.println("Max Activity "+count);
         for(int i=0;i<list.size();i++){
             System.out.print("A"+list.get(i)+",");
         }
-        System.out.println();
-        System.out.print("Max Act Count:");
-        return count;
+        
+      
     }
     public static void main(String args[])  {
-        int start[] = {10,12,20};
-        int end[] = {20,25,30};
-        System.out.println(maxActSelection(start, end));
+        int start[] = {1,3,0,5,8,5};
+        int end[] = {2,4,6,7,9,9};
+       maxActSelection(start, end);
         
     }
 }
