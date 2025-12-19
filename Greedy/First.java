@@ -6,16 +6,22 @@ package dsajava.Greedy;
 import java.util.ArrayList;
 public class First {
     public static void maxActSelection(int start[],int end[]){
+          int count =0;
         ArrayList<Integer> list = new ArrayList<>();
-        int count =0;
-        list.add(0);
+          int activities[][] = new int[start.length][3];
+          for(int i=0; i<start.length;i++){
+            activities[i][0] =i;
+            activities[i][1]= start[i];
+            activities[i][2] = end[i];
+          }
+        list.add(activities[0][0]);
         count = 1;
-        int endOfLastSelectedActvity = end[0];
+        int endOfLastSelectedActvity = activities[0][2];
         for(int i=1; i<end.length;i++){
-            if(start[i]>=endOfLastSelectedActvity){
-                list.add(i);
+            if(activities[i][1]>=endOfLastSelectedActvity){
+                list.add(activities[i][0]);
                 count++;
-                endOfLastSelectedActvity= end[i];
+                endOfLastSelectedActvity= activities[i][2];
             }
         }
         System.out.println("Max Activity "+count);
