@@ -3,7 +3,9 @@ package dsajava.Greedy;
 //(33) "Greedy Algorithm"
 // 18|12|25 dec 2025
 //
+import java.util.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 public class First {
     public static void maxActSelection(int start[],int end[]){
           int count =0;
@@ -32,9 +34,31 @@ public class First {
       
     }
     public static void main(String args[])  {
-        int start[] = {1,3,0,5,8,5};
-        int end[] = {2,4,6,7,9,9};
-       maxActSelection(start, end);
-        
+        int start[] = {0,3,1,5,4,8,2};
+        int end[] =   {2,7,5,8,6,10,4};
+        ArrayList<Integer> ans = new ArrayList<>();
+        int acti[][] = new int[start.length][3];
+        for(int i=0; i<start.length;i++){
+          acti[i][0] = i;
+          acti[i][1] = start[i];
+          acti[i][2] = end[i];
+        }
+        int count =0;
+        Arrays.sort(acti,Comparator.comparingDouble(o->o[2]));
+        ans.add(acti[0][0]);
+        count++;
+        int lastend = acti[0][2];
+        for(int i=1;i<start.length;i++){
+          if(acti[i][1] >= lastend){
+            ans.add(i);
+            count++;
+            lastend= acti[i][2];
+          }
+        }
+        System.out.println("maximum count:"+count);
+        for(int i=0; i<ans.size();i++){
+          System.out.print("P"+ans.get(i)+" ");
+        }
+        System.out.println(); 
     }
 }
