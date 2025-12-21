@@ -33,32 +33,37 @@ public class First {
         
       
     }
-    public static void main(String args[])  {
-        int start[] = {0,3,1,5,4,8,2};
-        int end[] =   {2,7,5,8,6,10,4};
-        ArrayList<Integer> ans = new ArrayList<>();
-        int acti[][] = new int[start.length][3];
-        for(int i=0; i<start.length;i++){
-          acti[i][0] = i;
-          acti[i][1] = start[i];
-          acti[i][2] = end[i];
+    public static int fractionalKnapsack(int val[],int wight[],int w){
+      int totalVal =0;
+      int capacity = w;
+      double ratio[][] = new double[val.length][2];
+
+      for(int i =0;i<val.length;i++){
+        ratio[i][0] =i;
+        ratio[i][1] =val[i]/(double)wight[i];
+      }
+      Arrays.sort(ratio, Comparator.comparingDouble(o->o[1]));
+      for(int i=ratio.length-1; i>= 0; i--){
+        int idx = (int)ratio[i][0];
+        if(capacity >= wight[idx]){
+          totalVal += val[idx];
+          capacity -=wight[idx];
+        }else{
+          totalVal +=  capacity * ratio[i][1];
+          capacity =0;
+          return totalVal;
         }
-        int count =0;
-        Arrays.sort(acti,Comparator.comparingDouble(o->o[2]));
-        ans.add(acti[0][0]);
-        count++;
-        int lastend = acti[0][2];
-        for(int i=1;i<start.length;i++){
-          if(acti[i][1] >= lastend){
-            ans.add(i);
-            count++;
-            lastend= acti[i][2];
-          }
-        }
-        System.out.println("maximum count:"+count);
-        for(int i=0; i<ans.size();i++){
-          System.out.print("P"+ans.get(i)+" ");
-        }
-        System.out.println(); 
+      }
+      return totalVal;
     }
+    public static void main(String args[])  {
+      int value[]= {24,18,28,15};
+      int weight[] = {2,3,7,5};
+      int w =15;
+      int totalVal = fractionalKnapsack(value, weight, w);
+      System.out.println(totalVal);
+      
+    }
+       
+  
 }
