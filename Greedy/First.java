@@ -82,13 +82,25 @@ public class First {
       }
       return chainLen;
     }
+    public static void indianCoin(int moneyArr[],int v){
+      
+      int coin =0;
+      for(int i= moneyArr.length-1; i>=0; i--){
+        while (v >= moneyArr[i]){
+          v = v - moneyArr[i];
+          coin++;
+          System.out.println("Rs"+moneyArr[i]+" ");
+        }
+
+      }
+     System.out.println("Coin count :"+ coin);
+
+    }
     public static void main(String args[]){
-      int pair [][] = {{5,24},{39,60},{5,28},{27,40},{50,90}};
-      System.out.println(maxChainLenth(pair));
-      
-      
+      int moneyArr[] = {1,2,5,10,20,50,100,500,2000};
+      int v = 44;
+      indianCoin(moneyArr, v);
+     
       
     }
-       
-  
-}
+  }
