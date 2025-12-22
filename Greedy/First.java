@@ -66,10 +66,26 @@ public class First {
       System.out.println("Min. absolute difference=>"+mindIff);
       return;
     }
-    public static void main(String args[])  {
-      int A[] = {1,4,7,8};
-      int B[] = {2,3,5,6};
-      minAbsdifference(A,B);
+    public static int maxChainLenth(int pair[][]){
+      //sorted array
+      Arrays.sort(pair, Comparator.comparingDouble(o->o[1]));
+      int chainLen = 0;
+           int end = pair[0][1];
+      chainLen =1;
+      for(int i = 1; i < 5; i++){
+        int start = pair[i][0];
+        if(start >= end){
+         
+          chainLen++;
+          end = pair[i][1];
+        }
+      }
+      return chainLen;
+    }
+    public static void main(String args[]){
+      int pair [][] = {{5,24},{39,60},{5,28},{27,40},{50,90}};
+      System.out.println(maxChainLenth(pair));
+      
       
       
     }
