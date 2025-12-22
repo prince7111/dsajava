@@ -56,12 +56,21 @@ public class First {
       }
       return totalVal;
     }
+    public static void minAbsdifference(int A[],int B[]){
+      Arrays.sort(A);
+      Arrays.sort(B);
+      int mindIff = 0;
+      for(int i = 0; i < A.length; i++){
+        mindIff += Math.abs(A[i] - B[i]);
+      }
+      System.out.println("Min. absolute difference=>"+mindIff);
+      return;
+    }
     public static void main(String args[])  {
-      int value[]= {24,18,28,15};
-      int weight[] = {2,3,7,5};
-      int w =15;
-      int totalVal = fractionalKnapsack(value, weight, w);
-      System.out.println(totalVal);
+      int A[] = {1,4,7,8};
+      int B[] = {2,3,5,6};
+      minAbsdifference(A,B);
+      
       
     }
        
