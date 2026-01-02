@@ -48,14 +48,42 @@ public class BinaryTreeA {
         postorder(root.right);
         System.out.print(root.data+" ");
     }
+//Leval order
+
+public static void levalorder(Node root){
+	     if(root == null){
+	         return;
+	     }
+	         Queue<Node> q = new LinkedList<>();
+	         q.add(root);
+	         q.add(null);
+	         
+	       while(!q.isEmpty()){
+	          Node curr = q.remove();
+	          if(curr == null){
+	              if(q.isEmpty()){
+	                  break;
+	              }
+	                  q.add(null);
+	                  System.out.println();
+	               
+	          }else{
+	               System.out.print(curr.data);    
+	              if(curr.left!=null){
+	                  q.add(curr.left);
+	               }
+	                if(curr.right!=null){
+	                  q.add(curr.right);
+	               }    
+	          }
+	          
+	     }
+	}
+
     public static void main(String args[]){
        int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
        BinaryTree tree = new BinaryTree();
        Node root = tree.buildTree(nodes);
-       preOrderTraversal(root);
-       System.out.println();
-       inorder(root);
-       System.out.println();
-       postorder(root);
+       levelorder(root);
     }   
 }
