@@ -1,33 +1,27 @@
-import java.util.Comparator;
-import java.util.PriorityQueue;
-public class Heaps {
-    static class Student implements Comparable<Student>{
-        String name;
-        int rank;
-        public Student(String name,int rank){
-            this.name = name;
-            this.rank = rank;
+import java.util.*;
+public class Heaps{
+    static class heap{
+        ArrayList<Integer> arr = new ArrayList<>();
+        public void add(int data){
+            arr.add(data);
+            int x = arr.size()-1;//child index
+            int per = (x-1)/2;
+            while(arr.get(x) < arr.get(per)){
+                int temp = arr.get(x);
+                arr.set(x, arr.get(per));
+                arr.set(per, temp);
+            }
         }
-        @Override
-        public int compareTo(Student s2){
-            return this.rank - s2.rank;
+        public int peek(){
+            return arr.get(0);
         }
+
     }
     public static void main(String args[]){
-        System.out.println("(Heaps/PrioriyQueues)");
-        PriorityQueue <Student> pq = new PriorityQueue<>(Comparator.reverseOrder());
-        pq.add(new Student("A",4));
-        pq.add(new Student("B", 3));
-        pq.add(new Student("C",2));
-        pq.add(new Student("D", 1));
-        while(!pq.isEmpty()){
-            System.out.println(pq.peek().name+"->"+pq.peek().rank);
-            pq.remove();
-        }
-         
-
-
+        heap h = new heap();
+        h.add(1);
+        h.add(4);
+    System.out.println(h.peek());
 
     }
-    
 }
