@@ -8,24 +8,19 @@ public class HelloGraph{
             this.dest = d;
         }
     }
-    public static  void Bfs( ArrayList<Edge> graph[],int V){
-        Queue<Integer> q = new LinkedList<>();
-        boolean vis[] =new boolean[V+1];
-        q.add(1);
-        while(!q.isEmpty()){
-            int curr = q.remove();
-            if(!vis[curr]){
-                System.out.println(curr);
-                vis[curr] = true;
-                for(int i = 0; i<graph[curr].size(); i++){
-                    Edge e = graph[curr].get(i);
-                        q.add(e.dest);
-                    
-                }
 
+    public static void dfs(ArrayList<Edge> graph[], boolean vis[],int curr){ 
+        System.out.print(curr);
+        vis[curr] = true;
+        for(int i = 0; i<graph[curr].size() ; i++){
+            Edge e = graph[curr].get(i);
+            if(!vis[e.dest]){
+                dfs(graph, vis, e.dest);
             }
         }
 
+
+        
     }
     public static void main(String args[]){
         int V = 6;
@@ -50,9 +45,11 @@ public class HelloGraph{
         graph[5].add(new Edge(5,4));  
         graph[5].add(new Edge(5,6));
 
-        graph[6].add(new Edge(6,1));
-        graph[6].add(new Edge(6,1));
-        Bfs(graph,V);
+        graph[6].add(new Edge(6,4));
+        graph[6].add(new Edge(6,5));
+        
+        boolean vis[] = new boolean[V+1];
+        dfs(graph, vis, 1);
         
 
     
