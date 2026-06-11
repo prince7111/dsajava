@@ -9,17 +9,22 @@ public class HelloGraph{
         }
     }
 
-    public static void dfs(ArrayList<Edge> graph[], boolean vis[],int curr){ 
-        System.out.print(curr);
+    public static boolean hasPath(ArrayList<Edge> graph[], boolean vis[],int st,int end,int curr){ 
+        
+        if(curr == end){
+            return true;
+        }
         vis[curr] = true;
         for(int i = 0; i<graph[curr].size() ; i++){
             Edge e = graph[curr].get(i);
             if(!vis[e.dest]){
-                dfs(graph, vis, e.dest);
+                if(hasPath(graph, vis, st, end, e.dest)){
+                    return true;
+                }
             }
+            
         }
-
-
+        return false;
         
     }
     public static void main(String args[]){
@@ -49,7 +54,9 @@ public class HelloGraph{
         graph[6].add(new Edge(6,5));
         
         boolean vis[] = new boolean[V+1];
-        dfs(graph, vis, 1);
+        System.out.println(hasPath(graph, vis, 1, 6, 1));
+        System.out.println(hasPath(graph, vis, 1, 100, 1));
+        
         
 
     
